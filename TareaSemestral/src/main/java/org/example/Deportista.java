@@ -1,13 +1,30 @@
 package org.example;
 
-public class Deportista implements Participantes{
-    private int puntos = 0;
-    public Deportista() {
+public class Deportista extends Participantes{
+    private int edad;
+
+    public Deportista(String nombre, String contacto, int edad) {
+        super(nombre,contacto);
+        this.edad = edad;
     }
 
     @Override
     public void agregarPuntaje(int puntos) {
-        this.puntos += puntos;
+        super.agregarPuntaje(puntos);
+    }
+    public int getPuntos() {
+        return super.getPuntos();
+    }
 
+    public String getNombre() {
+        return super.getNombre();
+    }
+
+    public String getContacto() {
+        return super.getContacto();
+    }
+
+    public int getEdad() {
+        return edad;
     }
 }

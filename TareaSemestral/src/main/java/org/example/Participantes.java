@@ -1,6 +1,6 @@
 package org.example;
 
 public interface Participantes {
-    public void agregarPuntaje();
+    public void agregarPuntaje(int punto);
 
 }

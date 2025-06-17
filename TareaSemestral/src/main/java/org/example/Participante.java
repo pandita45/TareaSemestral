@@ -1,11 +1,11 @@
 package org.example;
 
-abstract class Participantes {
+abstract class Participante {
     private String nombre;
     private String contacto;
     private int puntos;
 
-    public Participantes(String nombre, String contacto) {
+    public Participante(String nombre, String contacto) {
         this.nombre = nombre;
         this.contacto = contacto;
     }

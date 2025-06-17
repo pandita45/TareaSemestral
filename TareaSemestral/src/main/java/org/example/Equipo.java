@@ -1,10 +1,12 @@
 package org.example;
 
-public class Equipo extends Participantes{
-    private ListaDeportistas miembros;
+import java.util.ArrayList;
+
+public class Equipo extends Participante{
+    private ArrayList<Deportista> miembros;
     private Entrenador entrenador;
 
-    public Equipo(String nombre, String contacto, ListaDeportistas deportistas , Entrenador entrenador) {
+    public Equipo(String nombre, String contacto, ArrayList<Deportista> deportistas , Entrenador entrenador) {
         super(nombre,contacto);
         this.miembros = deportistas;
         this.entrenador = entrenador;
@@ -13,7 +15,7 @@ public class Equipo extends Participantes{
         super.agregarPuntaje(puntos);
     }
 
-    public ListaDeportistas getParticipantes(){
+    public ArrayList<Deportista> getParticipantes(){
         return miembros;
     }
     public Entrenador getEntrenador(){
@@ -28,7 +30,7 @@ public class Equipo extends Participantes{
         return super.getNombre();
     }
 
-    public ListaDeportistas getMiembros() {
+    public ArrayList<Deportista> getMiembros() {
         return miembros;
     }
 

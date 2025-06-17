@@ -1,5 +1,7 @@
 package org.example;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class Torneo {
@@ -9,18 +11,23 @@ public class Torneo {
     private ZonedDateTime fechaInicial;
     private ZonedDateTime fechaTermino;
     private int cantidadParticipantes;
-    private ListaDeportistas participante;
+    private ArrayList<Participante> participante;
 
-    public Torneo(String nombre, String disciplina, FormatoDeTorneo formato,
-                  ZonedDateTime fechaInicial, ZonedDateTime fechaTermino){
+    public Torneo(String nombre, String disciplina, FormatoDeTorneo formato){
         this.nombre=nombre;
         this.disciplina=disciplina;
         this.formato=formato;
-        this.fechaInicial=fechaInicial;
     }
 
-    public void agregarParticipantes(ListaDeportistas participante){
+    public void agregarParticipantes(ArrayList<Participante> participante){
         this.participante = participante;
+    }
+    public void jugar(String a){
+        for(Participante participante: participante){
+            if(participante.getNombre().equals(a)){
+
+            }
+        }
     }
 
 
@@ -45,7 +52,7 @@ public class Torneo {
         return fechaTermino;
     }
 
-    public ListaDeportistas getParticipante() {
+    public ArrayList<Participante> getParticipantes() {
         return participante;
     }
 }

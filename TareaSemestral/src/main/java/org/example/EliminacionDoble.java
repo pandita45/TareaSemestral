@@ -1,12 +1,12 @@
 package org.example;
 
-public class EliminacionDoble implements FormatoDeTorneo{
-    private Encuentro encuentro;
-    public EliminacionDoble(){
-        encuentro = new Encuentro();
+import java.util.ArrayList;
 
-    }
+public class EliminacionDoble implements FormatoDeTorneo{
+    private ArrayList<Participante> lowerBracket;
     public void jugarPartida(Participante a, Participante b) {
-        encuentro.Jugar(a,b);
+    }
+    public void print(){
+        System.out.println("Estas en EliminacionDoble");
     }
 }

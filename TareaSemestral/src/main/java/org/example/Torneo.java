@@ -33,6 +33,7 @@ public class Torneo {
         System.out.println(a.getNombre());
         System.out.println(b.getNombre());
         formato.jugarPartida(a,b);
+        System.out.println("-------------sebaaa, la casa---------------");
         for (Participante participante: Torneo.participante) {
             System.out.print(participante.getNombre() + ", ");
         }

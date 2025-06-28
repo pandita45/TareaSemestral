@@ -21,13 +21,17 @@ public class Main{
         lista.add(p6);
         lista.add(p7);
         lista.add(p8);
-        Torneo t = new Torneo("balatro", "balatrez", new EliminacionDirecta());
+        Torneo t = new Torneo("balatro", "balatrez", new EliminacionDoble());
         t.agregarParticipantes(lista);
-        while(Torneo.participante.size() != 1){
-        int variable = Torneo.participante.size()/2;
-        for (int i = 0; i < variable; i++){
-            t.jugar(Torneo.participante.get(i), Torneo.participante.get(i + 1));
-        }
+        while(Torneo.participante.size() != 1 && EliminacionDoble.lowerBracket.size() != 1){
+            int variable = Torneo.participante.size()/2;
+            for (int i = 0; i < variable; i++){
+                t.jugar(Torneo.participante.get(i), Torneo.participante.get(i + 1));
+            }
+            int variable2 = Torneo.participante.size()/2;
+            for (int i = 0; i < variable2; i++){
+                t.jugar(EliminacionDoble.lowerBracket.get(i), EliminacionDoble.lowerBracket.get(i + 1));
+            }
         }
     }
 }

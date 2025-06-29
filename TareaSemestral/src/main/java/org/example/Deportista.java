@@ -9,8 +9,8 @@ public class Deportista extends Participante{
     }
 
     @Override
-    public void agregarPuntaje(int puntos) {
-        super.agregarPuntaje(puntos);
+    public void agregarPuntos(int puntos) {
+        super.agregarPuntos(puntos);
     }
     public int getPuntos() {
         return super.getPuntos();

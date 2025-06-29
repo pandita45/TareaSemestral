@@ -11,10 +11,10 @@ public class Encuentro{
         Random random = new Random();
         int numeroAleatorio = random.nextInt(2);
         if(numeroAleatorio == 0){
-            uno.agregarPuntaje(3);
+            uno.agregarPuntos(3);
         }
         else{
-            dos.agregarPuntaje(3);
+            dos.agregarPuntos(3);
         }
 
     }

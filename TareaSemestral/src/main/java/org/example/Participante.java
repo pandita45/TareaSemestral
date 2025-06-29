@@ -13,9 +13,6 @@ abstract class Participante {
     public String getContacto() {
         return contacto;
     }
-    public void agregarPuntos(int puntos){
-        this.puntos += puntos;
-    }
 
     public int getPuntos() {
         return puntos;
@@ -25,6 +22,7 @@ abstract class Participante {
         return nombre;
     }
 
-    public void agregarPuntaje(int punto){
+    public void agregarPuntos(int puntos){
+        this.puntos += puntos;
     }
 }

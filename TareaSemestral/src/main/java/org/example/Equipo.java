@@ -11,8 +11,8 @@ public class Equipo extends Participante{
         this.miembros = deportistas;
         this.entrenador = entrenador;
     }
-    public void agregarPuntaje(int puntos) {
-        super.agregarPuntaje(puntos);
+    public void agregarPuntos(int puntos) {
+        super.agregarPuntos(puntos);
     }
 
     public ArrayList<Deportista> getParticipantes(){

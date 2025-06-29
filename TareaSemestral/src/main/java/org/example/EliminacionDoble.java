@@ -33,10 +33,10 @@ public class EliminacionDoble implements FormatoDeTorneo{
     }
     public Participante jugarFinal(){
         if(FormatoDeTorneo.selectWinner){
-            return lowerBracket.get(0);
+            return Torneo.participante.get(0);
         }
         else{
-            return Torneo.participante.get(0);
+            return lowerBracket.get(0);
         }
     }
     public void eliminar(Participante a){

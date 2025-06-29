@@ -5,13 +5,14 @@ import java.util.Objects;
 
 
 public class Torneo {
+    //Para poder acceder al arraylist desde cualquier clase
+    public static ArrayList<Participante> participante;
     private String nombre;
     private String disciplina;
     private FormatoDeTorneo formato;
     private ZonedDateTime fechaInicial;
     private ZonedDateTime fechaTermino;
     private int cantidadParticipantes;
-    private ArrayList<Participante> participante;
 
     public Torneo(String nombre, String disciplina, FormatoDeTorneo formato){
         this.nombre=nombre;
@@ -22,15 +23,22 @@ public class Torneo {
     public void agregarParticipantes(ArrayList<Participante> participante){
         this.participante = participante;
     }
-    public void jugar(String a){
-        for(Participante participante: participante){
-            if(participante.getNombre().equals(a)){
 
-            }
+
+    public void jugar(Participante a, Participante b){
+        for (Participante participante: Torneo.participante) {
+            System.out.print(participante.getNombre() + ", ");
         }
+        System.out.println();
+        System.out.println(a.getNombre());
+        System.out.println(b.getNombre());
+        formato.jugarPartida(a,b);
+        System.out.println("-------------sebaaa, la casa---------------");
+        for (Participante participante: Torneo.participante) {
+            System.out.print(participante.getNombre() + ", ");
+        }
+        System.out.println();
     }
-
-
 
     public String getNombre() {
         return nombre;
@@ -40,10 +48,9 @@ public class Torneo {
         return disciplina;
     }
 
-    public FormatoDeTorneo getFormato() {
-        return formato;
+    public void getFormato() {
+        formato.print();
     }
-
     public ZonedDateTime getFechaInicial() {
         return fechaInicial;
     }

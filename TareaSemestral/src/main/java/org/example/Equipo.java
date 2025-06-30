@@ -4,22 +4,17 @@ import java.util.ArrayList;
 
 public class Equipo extends Participante{
     private ArrayList<Deportista> miembros;
-    private Entrenador entrenador;
-    private int edad;
-    public Equipo(String nombre, String contacto, ArrayList<Deportista> deportistas , Entrenador entrenador, int edad) {
-        super(nombre,contacto, edad);
-        this.miembros = deportistas;
-        this.entrenador = entrenador;
+    public Equipo(String nombre, String contacto, int antiguedad) {
+        super(nombre,contacto, antiguedad);
     }
     public void agregarPuntos(int puntos) {
         super.agregarPuntos(puntos);
     }
-
+    public void agregarDeportista(Deportista d){
+        miembros.add(d);
+    }
     public ArrayList<Deportista> getParticipantes(){
         return miembros;
-    }
-    public Entrenador getEntrenador(){
-        return entrenador;
     }
 
     public int getPuntos() {

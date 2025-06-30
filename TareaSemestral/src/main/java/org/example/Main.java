@@ -7,10 +7,6 @@ public class Main{
 
 
         Torneo t = new Torneo("balatro", "balatrez", new LigaSimple());
-        Organizacion orga = new Organizacion(t, true);
-
-        for( Participante par: Torneo.participante){
-            System.out.println(par.getPuntos()+" "+par.getNombre() + " " + par.getContacto() + " " + par.getEdad());
-        }
+        Organizacion orga = new Organizacion(t, false);
     }
 }

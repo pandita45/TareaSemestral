@@ -4,8 +4,7 @@ package org.example;
 public class Entrenador extends Participante{
     private int edad;
     public Entrenador(String nombre,String contacto, int edad) {
-        super(nombre,contacto);
-        this.edad = edad;
+        super(nombre,contacto, edad);
     }
 
     public String getNombre() {
@@ -17,6 +16,6 @@ public class Entrenador extends Participante{
     }
 
     public int getEdad() {
-        return edad;
+        return super.getEdad();
     }
 }

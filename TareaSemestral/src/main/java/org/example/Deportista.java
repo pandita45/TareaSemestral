@@ -2,10 +2,8 @@ package org.example;
 
 public class Deportista extends Participante{
     private int edad;
-
     public Deportista(String nombre, String contacto, int edad) {
-        super(nombre,contacto);
-        this.edad = edad;
+        super(nombre,contacto,edad);
     }
 
     @Override
@@ -15,7 +13,6 @@ public class Deportista extends Participante{
     public int getPuntos() {
         return super.getPuntos();
     }
-
     public String getNombre() {
         return super.getNombre();
     }
@@ -25,6 +22,6 @@ public class Deportista extends Participante{
     }
 
     public int getEdad() {
-        return edad;
+        return super.getEdad();
     }
 }

@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Equipo extends Participante{
     private ArrayList<Deportista> miembros;
     private Entrenador entrenador;
-
-    public Equipo(String nombre, String contacto, ArrayList<Deportista> deportistas , Entrenador entrenador) {
-        super(nombre,contacto);
+    private int edad;
+    public Equipo(String nombre, String contacto, ArrayList<Deportista> deportistas , Entrenador entrenador, int edad) {
+        super(nombre,contacto, edad);
         this.miembros = deportistas;
         this.entrenador = entrenador;
     }
@@ -36,5 +36,8 @@ public class Equipo extends Participante{
 
     public String getContacto() {
         return super.getContacto();
+    }
+    public int getEdad(){
+        return super.getEdad();
     }
 }

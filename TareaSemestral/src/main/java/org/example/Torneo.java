@@ -18,10 +18,11 @@ public class Torneo {
         this.nombre=nombre;
         this.disciplina=disciplina;
         this.formato=formato;
+        this.participante = new ArrayList<>();
     }
 
-    public void agregarParticipantes(ArrayList<Participante> participante){
-        this.participante = participante;
+    public void agregarParticipantes(Participante participante){
+        this.participante.add(participante);
     }
 
 

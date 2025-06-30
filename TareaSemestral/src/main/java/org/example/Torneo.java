@@ -27,18 +27,7 @@ public class Torneo {
 
 
     public void jugar(Participante a, Participante b){
-        for (Participante participante: Torneo.participante) {
-            System.out.print(participante.getNombre() + ", ");
-        }
-        System.out.println();
-        System.out.println(a.getNombre());
-        System.out.println(b.getNombre());
         formato.jugarPartida(a,b);
-        System.out.println("-------------sebaaa, la casa---------------");
-        for (Participante participante: Torneo.participante) {
-            System.out.print(participante.getNombre() + ", ");
-        }
-        System.out.println();
     }
 
     public String getNombre() {

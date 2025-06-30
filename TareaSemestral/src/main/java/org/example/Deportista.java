@@ -2,7 +2,7 @@ package org.example;
 
 public class Deportista extends Participante{
     private int edad;
-    public Deportista(String nombre, String contacto, int edad) {
+    public Deportista(String nombre, String contacto, String edad) {
         super(nombre,contacto,edad);
     }
 
@@ -21,7 +21,7 @@ public class Deportista extends Participante{
         return super.getContacto();
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return super.getEdad();
     }
 }

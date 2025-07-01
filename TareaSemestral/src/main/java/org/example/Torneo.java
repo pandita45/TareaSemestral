@@ -11,19 +11,20 @@ public class Torneo {
     private FormatoDeTorneo formato;
     private ZonedDateTime fechaInicial;
     private ZonedDateTime fechaTermino;
-    private int cantidadParticipantes;
 
-    public Torneo(String nombre, String disciplina, FormatoDeTorneo formato){
+    public Torneo(String nombre, String disciplina, FormatoDeTorneo formato,
+                  ZonedDateTime fechaInicial, ZonedDateTime fechaTermino){
         this.nombre=nombre;
         this.disciplina=disciplina;
         this.formato=formato;
         this.participante = new ArrayList<>();
+        this.fechaInicial=fechaInicial;
+        this.fechaTermino=fechaTermino;
     }
 
     public void agregarParticipantes(Participante participante){
         this.participante.add(participante);
     }
-
 
     public void jugar(Encuentro partida){
         formato.jugarPartida(partida);

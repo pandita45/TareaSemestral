@@ -8,8 +8,8 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 public class Organizacion {
-    public Organizacion(Torneo torneo, boolean EDO){
-        InputStream is = Organizacion.class.getClassLoader().getResourceAsStream("Equipos.txt");
+    public Organizacion(Torneo torneo, boolean EOD,String archivo){
+        InputStream is = Organizacion.class.getClassLoader().getResourceAsStream(archivo);
 
         if (is == null) {
             System.out.println("Archivo no encontrado.");
@@ -22,12 +22,11 @@ public class Organizacion {
             StringBuilder sb = new StringBuilder();
             while ((linea = br.readLine()) != null) {
                 sb.append(linea);
-
                 sb.append(" ");
             }
             sb.deleteCharAt(sb.length()-1);
             contenido = sb.toString();
-            if(EDO){
+            if(EOD){
                 String[] palabras = contenido.split(" ");
                 for (int i = 0; i < palabras.length; i += 3) {
                     try {

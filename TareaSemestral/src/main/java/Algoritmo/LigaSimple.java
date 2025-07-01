@@ -1,6 +1,4 @@
-package org.example;
-
-import java.util.ArrayList;
+package Algoritmo;
 
 public class LigaSimple implements FormatoDeTorneo{
     public void jugarPartida(Encuentro partida) {

@@ -1,7 +1,6 @@
-package org.example;
+package Algoritmo;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.Objects;
 
 
 public class Torneo {

@@ -1,5 +1,4 @@
-package org.example;
-import javax.swing.*;
+package Algoritmo;
 import java.io.BufferedReader;
 
 import java.io.IOException;

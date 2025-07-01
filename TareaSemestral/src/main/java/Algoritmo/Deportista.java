@@ -1,4 +1,4 @@
-package org.example;
+package Algoritmo;
 
 public class Deportista extends Participante{
     private int edad;

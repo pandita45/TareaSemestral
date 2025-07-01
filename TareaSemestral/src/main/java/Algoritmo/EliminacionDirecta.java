@@ -1,4 +1,4 @@
-package org.example;
+package Algoritmo;
 
 public class EliminacionDirecta implements FormatoDeTorneo{
     @Override

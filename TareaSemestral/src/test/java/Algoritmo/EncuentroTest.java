@@ -1,4 +1,4 @@
-package org.example;
+package Algoritmo;
 
 import static org.junit.jupiter.api.Assertions.*;
 class EncuentroTest {

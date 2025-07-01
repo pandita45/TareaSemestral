@@ -1,4 +1,4 @@
-package org.example;
+package Algoritmo;
 
 public interface FormatoDeTorneo {
     public static boolean selectWinner = true;

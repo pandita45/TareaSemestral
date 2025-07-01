@@ -1,4 +1,4 @@
-package org.example;
+package Algoritmo;
 
 import java.util.ArrayList;
 

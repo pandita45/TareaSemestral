@@ -1,4 +1,4 @@
-package org.example;
+package Algoritmo;
 
 abstract class Participante {
     private String nombre;

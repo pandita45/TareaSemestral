@@ -5,7 +5,6 @@ import java.util.Objects;
 
 
 public class Torneo {
-    //Para poder acceder al arraylist desde cualquier clase
     public static ArrayList<Participante> participante;
     private String nombre;
     private String disciplina;
@@ -26,19 +25,8 @@ public class Torneo {
     }
 
 
-    public void jugar(Participante a, Participante b){
-        for (Participante participante: Torneo.participante) {
-            System.out.print(participante.getNombre() + ", ");
-        }
-        System.out.println();
-        System.out.println(a.getNombre());
-        System.out.println(b.getNombre());
-        formato.jugarPartida(a,b);
-        System.out.println("-------------sebaaa, la casa---------------");
-        for (Participante participante: Torneo.participante) {
-            System.out.print(participante.getNombre() + ", ");
-        }
-        System.out.println();
+    public void jugar(Encuentro partida){
+        formato.jugarPartida(partida);
     }
 
     public String getNombre() {

@@ -3,7 +3,6 @@ Doran doran@t1mail.com 24
 Oner oner@t1mail.com 22
 Faker faker@t1mail.com 28
 Gumayusi gumayusi@t1mail.com 23
-Keria keria@t1mail.com 22
 Smash smash@t1mail.com 18$
 HLE hle@hlemail.com 100
 Zeus zeus@hlemail.com 21
@@ -16,5 +15,4 @@ Breathe breathe@wbgmail.com 24
 Tian tian@wbgmail.com 24
 Xiaohu xiaohu@wbgmail.com 27
 Light light@wbgmail.com 24
-Erha erha@wbgmail.com 21
-Hang hang@wbgmail.com 22$
+Erha erha@wbgmail.com 21$

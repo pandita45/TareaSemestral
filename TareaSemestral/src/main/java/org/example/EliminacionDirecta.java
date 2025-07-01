@@ -1,15 +1,13 @@
 package org.example;
 
-import java.util.ArrayList;
-
 public class EliminacionDirecta implements FormatoDeTorneo{
     @Override
-    public void jugarPartida(Participante a, Participante b) {
+    public void jugarPartida(Encuentro partida) {
         if(FormatoDeTorneo.selectWinner){
-            eliminar(a);
+            eliminar(partida.getJugadorUno());
         }
         else{
-            eliminar(b);
+            eliminar(partida.getJugadorDos());
         }
     }
     public void eliminar(Participante a){

@@ -7,38 +7,27 @@ public class EliminacionDoble implements FormatoDeTorneo{
     public EliminacionDoble(){
         lowerBracket = new ArrayList<>();
     }
-    public void jugarPartida(Participante a, Participante b) {
+    public void jugarPartida(Encuentro partida) {
         if(FormatoDeTorneo.selectWinner){
-            if(lowerBracket.contains(a)){
-                eliminar(a);
+            if(lowerBracket.contains(partida.getJugadorUno())){
+                eliminar(partida.getJugadorUno());
             }
             else{
-                lowerBracket.add(a);
-                Torneo.participante.remove(a);
+                lowerBracket.add(partida.getJugadorUno());
+                Torneo.participante.remove(partida.getJugadorUno());
             }
         }
         else{
-            if(lowerBracket.contains(b)){
-                eliminar(b);
+            if(lowerBracket.contains(partida.getJugadorDos())){
+                eliminar(partida.getJugadorDos());
             }
             else{
-                lowerBracket.add(b);
-                Torneo.participante.remove(b);
+                lowerBracket.add(partida.getJugadorDos());
+                Torneo.participante.remove(partida.getJugadorDos());
             }
         }
-        for (Participante participante: lowerBracket) {
-            System.out.print(participante.getNombre() + ", ");
-        }
-        System.out.println();
     }
-    public Participante jugarFinal(){
-        if(FormatoDeTorneo.selectWinner){
-            return Torneo.participante.getFirst();
-        }
-        else{
-            return lowerBracket.getFirst();
-        }
-    }
+
     public void eliminar(Participante a){
         lowerBracket.remove(a);
     }

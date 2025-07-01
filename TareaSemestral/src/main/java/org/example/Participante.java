@@ -4,8 +4,8 @@ abstract class Participante {
     private String nombre;
     private String contacto;
     private int puntos;
-    private int edad;
-    public Participante(String nombre, String contacto, int edad) {
+    private String edad;
+    public Participante(String nombre, String contacto, String edad) {
         this.nombre = nombre;
         this.contacto = contacto;
         this.edad = edad;
@@ -26,7 +26,7 @@ abstract class Participante {
     public void agregarPuntos(int puntos){
         this.puntos += puntos;
     }
-    public int getEdad(){
+    public String  getEdad(){
         return this.edad;
     }
 }

@@ -13,6 +13,6 @@ public class Texto extends JLabel {
         setOpaque(false);
     }
     static {
-        Font = new Font("Arial", java.awt.Font.BOLD, 65);
+        Font = new Font("Times New Roman", java.awt.Font.BOLD, Escalar.X(65));
     }
 }

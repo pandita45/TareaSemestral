@@ -9,10 +9,10 @@ public class Texto extends JLabel {
     public Texto(String Mensaje){
         super(Mensaje);
         setFont(Font);
-        setForeground(Color.BLACK);
+        setForeground(Color.decode("#EAEAEA"));
         setOpaque(false);
     }
     static {
-        Font = new Font("Times New Roman", java.awt.Font.BOLD, Escalar.X(65));
+        Font = new Font("SansSerif", java.awt.Font.BOLD, Escalar.X(65));
     }
 }

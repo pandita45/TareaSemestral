@@ -1,6 +1,7 @@
 package Algoritmo;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class Torneo {
@@ -8,11 +9,11 @@ public class Torneo {
     private String nombre;
     private String disciplina;
     private FormatoDeTorneo formato;
-    private ZonedDateTime fechaInicial;
-    private ZonedDateTime fechaTermino;
+    private Date fechaInicial;
+    private Date fechaTermino;
 
     public Torneo(String nombre, String disciplina, FormatoDeTorneo formato,
-                  ZonedDateTime fechaInicial, ZonedDateTime fechaTermino){
+                  Date fechaInicial, Date fechaTermino){
         this.nombre=nombre;
         this.disciplina=disciplina;
         this.formato=formato;
@@ -40,11 +41,11 @@ public class Torneo {
     public void getFormato() {
         formato.print();
     }
-    public ZonedDateTime getFechaInicial() {
+    public Date getFechaInicial() {
         return fechaInicial;
     }
 
-    public ZonedDateTime getFechaTermino() {
+    public Date getFechaTermino() {
         return fechaTermino;
     }
 

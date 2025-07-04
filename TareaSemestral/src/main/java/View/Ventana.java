@@ -10,7 +10,7 @@ public class Ventana extends JFrame{
     private Ventana() {
         super();
         setLayout(null);
-        getContentPane().setBackground(Color.decode("#146D8B"));
+        getContentPane().setBackground(Color.decode("#1E1E2F"));
         principal = new PanelPrincipal();
         add(principal);
 

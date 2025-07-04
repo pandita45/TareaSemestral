@@ -12,9 +12,9 @@ public class CalendarioConHora extends JPanel {
     private JButton boton;
     private Date fecha;
     private Date hora;
-    public CalendarioConHora(JButton buttom) {
-        setSize(400, 350);
-        setBounds(800,700,400,300);
+    public CalendarioConHora(JButton buttom,int PosX, int PosY) {
+        setSize(Escalar.X(400), Escalar.Y(350));
+        setBounds(Escalar.X(PosX),Escalar.Y(PosY),Escalar.X(400),Escalar.Y(300));
         setLayout(new BorderLayout());
 
         calendario = new JCalendar();
@@ -24,7 +24,7 @@ public class CalendarioConHora extends JPanel {
         JSpinner.DateEditor editor = new JSpinner.DateEditor(horaSpinner, "HH:mm");
         horaSpinner.setEditor(editor);
 
-        boton = new JButton("Mostrar fecha y hora");
+        boton = new JButton("Confirmar fecha y hora");
 
         boton.addActionListener(e -> {
             fecha = calendario.getDate();
@@ -34,7 +34,6 @@ public class CalendarioConHora extends JPanel {
             fecha.setHours(hora.getHours());
             fecha.setMinutes(hora.getMinutes());
             buttom.setText(formato.format(fecha));
-            JOptionPane.showMessageDialog(this, "Fecha y hora seleccionada: " + formato.format(fecha));
 
             setVisible(false);
         });

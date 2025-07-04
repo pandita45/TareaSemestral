@@ -23,13 +23,11 @@ public class Menu extends JMenuItem {
         menu.setOpaque(true);
         menu.addActionListener(e ->{
             boton.setText(formato);
-            JOptionPane.showMessageDialog(Ventana.getInstancia(), texto);
             switch (var2){
                 case 1 -> var1 = 1;
                 case 2 -> var1 = 2;
                 case 3 -> var1 = 3;
             }
-            System.out.println(var1);
     });
         menu.setFont(new Font("SansSerif",Font.PLAIN, Escalar.X(20)));
         return menu;

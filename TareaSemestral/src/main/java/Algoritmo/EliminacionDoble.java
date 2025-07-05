@@ -31,7 +31,8 @@ public class EliminacionDoble implements FormatoDeTorneo{
     public void eliminar(Participante a){
         lowerBracket.remove(a);
     }
-    public void print(){
-        System.out.println("Estas en EliminacionDoble");
+
+    public String print(){
+        return "EliminacionDoble";
     }
 }

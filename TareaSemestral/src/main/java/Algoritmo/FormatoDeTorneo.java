@@ -5,5 +5,5 @@ public interface FormatoDeTorneo {
     public static boolean draw= false;
     //patron usado: Strategy Patron
     void jugarPartida(Encuentro partida);
-    void print();
+    String print();
 }

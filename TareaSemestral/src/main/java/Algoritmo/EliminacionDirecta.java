@@ -13,7 +13,7 @@ public class EliminacionDirecta implements FormatoDeTorneo{
     public void eliminar(Participante a){
             Torneo.participante.remove(a);
     }
-    public void print(){
-        System.out.println("Estas en EliminacionDirecta");
+    public String print(){
+        return "EliminacionDirecta";
     }
 }

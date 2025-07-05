@@ -37,8 +37,8 @@ public class Torneo {
         return disciplina;
     }
 
-    public void getFormato() {
-        formato.print();
+    public String getFormato() {
+        return formato.print();
     }
     public Date getFechaInicial() {
         return fechaInicial;

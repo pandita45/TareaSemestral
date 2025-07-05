@@ -33,7 +33,6 @@ public class Organizacion {
                         String contacto = palabras[i + 1];
                         String edad = palabras[i + 2];
                         torneo.agregarParticipantes(new Deportista(nombre, contacto, edad));
-                        System.out.println(nombre + " " + contacto + " " + edad + "\n");
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
@@ -42,12 +41,9 @@ public class Organizacion {
             else{
                 try {
                     String[] palabras = contenido.split("\\$");
-                    System.out.println(Arrays.toString(palabras));
                     for (String bloque : palabras) {
                         Equipo team = null;
                         String[] palabras2 = bloque.trim().split("\\s+");
-                        System.out.println(Arrays.toString(palabras2));
-                        System.out.println(palabras2.length);
                         for (int i = 0; i < palabras2.length;i += 3) {
                             String nombre = palabras2[i];
                             String contacto = palabras2[i+1];

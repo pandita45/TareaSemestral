@@ -14,7 +14,7 @@ public class LigaSimple implements FormatoDeTorneo{
         }
         Torneo.participante.sort((p1, p2) -> Integer.compare(p2.getPuntos(), p1.getPuntos()));
     }
-    public void print(){
-        System.out.println("estas en LigaSimple");
+    public String print(){
+        return "LigaSimple";
     }
 }

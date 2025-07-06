@@ -1,6 +1,6 @@
 package Algoritmo;
 
-abstract class Participante {
+public abstract class Participante {
     private String nombre;
     private String contacto;
     private int puntos;

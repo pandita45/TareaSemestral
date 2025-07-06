@@ -3,8 +3,8 @@ package View;
 import javax.swing.*;
 
 public class PanelPrincipal extends JPanel {
-    private PanelTorneo MSI;
     private PanelBienvenida bienvenida;
+    public static PanelTorneoDirecto MSI;
     public static PanelAgregarParticipantes agregarParticipantes;
     public PanelPrincipal(){
         super();
@@ -13,7 +13,7 @@ public class PanelPrincipal extends JPanel {
         setOpaque(false);
         bienvenida = new PanelBienvenida();
         agregarParticipantes = new PanelAgregarParticipantes();
-        MSI = new PanelTorneo();
+        MSI = new PanelTorneoDirecto();
         add(agregarParticipantes);
         add(bienvenida);
         add(MSI);

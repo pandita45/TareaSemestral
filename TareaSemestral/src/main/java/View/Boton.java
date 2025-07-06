@@ -17,4 +17,5 @@ public class Boton extends JButton {
     public void setColor(String color){
         setBackground(Color.decode(color));
     }
+
 }

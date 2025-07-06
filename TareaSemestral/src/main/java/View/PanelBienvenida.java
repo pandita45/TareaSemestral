@@ -47,13 +47,13 @@ public class PanelBienvenida extends JPanel {
         confirmarDatos.addActionListener(e -> {
             int var1 = opcion1.getVar1();
             switch (var1) {
-                case 1 -> PanelTorneoDirecto.torneo = new Torneo(torneoName.getTexto(),
+                case 1 -> PanelPrincipal.torneo = new Torneo(torneoName.getTexto(),
                         disciplinaName.getTexto(),new EliminacionDirecta(), calendario.getDate(), calendarioFinal.getDate());
 
-                case 2 -> PanelTorneoDirecto.torneo = new Torneo(torneoName.getTexto(),
+                case 2 -> PanelPrincipal.torneo = new Torneo(torneoName.getTexto(),
                         disciplinaName.getTexto(),new EliminacionDoble(), calendario.getDate(), calendarioFinal.getDate());
 
-                case 3 -> PanelTorneoDirecto.torneo = new Torneo(torneoName.getTexto(),
+                case 3 -> PanelPrincipal.torneo = new Torneo(torneoName.getTexto(),
                         disciplinaName.getTexto(),new LigaSimple(), calendario.getDate(), calendarioFinal.getDate());
             }
             setVisible(false);

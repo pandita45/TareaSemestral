@@ -23,18 +23,31 @@ public class PanelAgregarParticipantes extends JPanel {
             eleccion = new Organizacion(PanelPrincipal.torneo,true,"Deportistas.txt");
             setVisible(false);
             switch (PanelPrincipal.torneo.getFormato()){
-                case "EliminacionDirecta" -> PanelPrincipal.MSI.setVisible(true);
-                case "EliminacionDoble" -> PanelPrincipal.Champions.setVisible(true);
-                case "LigaSimple" -> PanelPrincipal.liga.setVisible(true);
+                case "EliminacionDirecta":
+                    PanelPrincipal.MSI.setVisible(true);
+                    break;
+                case "EliminacionDoble":
+                    PanelPrincipal.Champions.setVisible(true);
+                    break;
+                case "LigaSimple":
+                    PanelPrincipal.liga.setVisible(true);
+                    break;
             }
         });
         equipo.addActionListener(e -> {
             eleccion = new Organizacion(PanelPrincipal.torneo,false,"Equipos.txt");
             setVisible(false);
             switch (PanelPrincipal.torneo.getFormato()){
-                case "EliminacionDirecta" -> PanelPrincipal.MSI.setVisible(true);
-                case "EliminacionDoble" -> PanelPrincipal.Champions.setVisible(true);
-                case "LigaSimple" -> PanelPrincipal.liga.setVisible(true);
+                case "EliminacionDirecta":
+                    PanelPrincipal.MSI.setVisible(true);
+                    PanelPrincipal.MSI.ayuda.GenerarYJugarEncuentros();
+                    break;
+                case "EliminacionDoble":
+                    PanelPrincipal.Champions.setVisible(true);
+                    break;
+                case "LigaSimple":
+                    PanelPrincipal.liga.setVisible(true);
+                    break;
             }
         });
         add(titulo);

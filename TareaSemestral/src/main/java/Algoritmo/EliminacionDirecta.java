@@ -3,7 +3,7 @@ package Algoritmo;
 public class EliminacionDirecta implements FormatoDeTorneo{
     @Override
     public void jugarPartida(Encuentro partida) {
-        if(FormatoDeTorneo.selectWinner){
+        if(Torneo.selectWinner){
             eliminar(partida.getJugadorUno());
         }
         else{

@@ -8,7 +8,7 @@ public class EliminacionDoble implements FormatoDeTorneo{
         lowerBracket = new ArrayList<>();
     }
     public void jugarPartida(Encuentro partida) {
-        if(FormatoDeTorneo.selectWinner){
+        if(Torneo.selectWinner){
             if(lowerBracket.contains(partida.getJugadorUno())){
                 eliminar(partida.getJugadorUno());
             }

@@ -3,14 +3,14 @@ package Algoritmo;
 
 public class LigaSimple implements FormatoDeTorneo{
     public void jugarPartida(Encuentro partida) {
-        if(FormatoDeTorneo.draw){
+        if(Torneo.draw){
             partida.getJugadorUno().agregarPuntos(1);
             partida.getJugadorDos().agregarPuntos(1);
             partida.getJugadorUno().addDraws(1);
             partida.getJugadorDos().addDraws(1);
 
         }
-        else if(FormatoDeTorneo.selectWinner){
+        else if(Torneo.selectWinner){
             partida.getJugadorUno().agregarPuntos(3);
             partida.getJugadorUno().addWins(1);
             partida.getJugadorDos().addLosses(1);

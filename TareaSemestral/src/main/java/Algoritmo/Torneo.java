@@ -6,6 +6,8 @@ import java.util.Date;
 
 
 public class Torneo {
+    public static boolean selectWinner = true;
+    public static boolean draw= false;
     public static ArrayList<Participante> participante;
     private String nombre;
     private String disciplina;

@@ -15,6 +15,7 @@ public class PanelLigaSimple extends JPanel {
     private static int  sizeTableY;
     private Boton a;
     private int aa =0;
+    private int cont = 0;
     public PanelLigaSimple() {
         super();
         setSize(Escalar.X(1920), Escalar.Y(1080));
@@ -23,14 +24,19 @@ public class PanelLigaSimple extends JPanel {
         setVisible(false);
 
         tablaPosiciones = new PanelTabla();
+
+        a = new Boton("jugar", 1000, 600, 200, 200);
+
         tablaPosiciones.setBounds(Escalar.X(100), Escalar.Y(170), Escalar.X(800), Escalar.Y(800));
         tablaPosiciones.setBorder(null);
+
         add(tablaPosiciones);
-        a = new Boton("jugar", 1000, 600, 200, 200);
         add(a);
+
         a.addActionListener(e -> {
             Encuentro ee = new Encuentro(PanelPrincipal.torneo.getParticipantes().get(aa), PanelPrincipal.torneo.getParticipantes().get(aa + 1), new Date());
             PanelPrincipal.torneo.jugar(ee);
+            tablaPosiciones.cargarDesdeTorneo();
             aa++;
         });
     }
@@ -38,9 +44,14 @@ public class PanelLigaSimple extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (PanelPrincipal.torneo != null) {
-            Texto titulo = new Texto(PanelPrincipal.torneo.getNombre(), 0, 25, 1920, 90);
-            titulo.setHorizontalAlignment(JTextField.CENTER);
-            add(titulo);
+            if(cont == 0){
+                tablaPosiciones.cargarDesdeTorneo();
+                Texto titulo = new Texto(PanelPrincipal.torneo.getNombre(), 0, 25, 1920, 90);
+                titulo.setHorizontalAlignment(JTextField.CENTER);
+                add(titulo);
+                cont++;
+            }
+
         }
         try {
             ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("FondoLigaSimple.png"));
@@ -51,7 +62,6 @@ public class PanelLigaSimple extends JPanel {
             System.out.println("Error al cargar la imagen");
         }
         Ventana.actualizar();
-        tablaPosiciones.cargarDesdeTorneo();
     }
 }
 

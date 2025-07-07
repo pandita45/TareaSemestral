@@ -1,12 +1,15 @@
 package View;
 
+import Algoritmo.Encuentro;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
 public class PanelTorneoDirecto extends JPanel {
     private String img;
-    private int CantidadParticipantes;
+    public static GeneradorEncuentrosDirectos ayuda;
+    public static int CantidadParticipantes;
     private int sumY;
     public PanelTorneoDirecto(){
         super();
@@ -14,6 +17,8 @@ public class PanelTorneoDirecto extends JPanel {
         setLayout(null);
         setSize(Escalar.X(1920), Escalar.Y(1080));
         setOpaque(false);
+        ayuda = new GeneradorEncuentrosDirectos();
+        setComponentZOrder(ayuda, 0);
     }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

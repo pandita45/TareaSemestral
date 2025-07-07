@@ -14,7 +14,7 @@ public class Ventana extends JFrame{
         principal = new PanelPrincipal();
         add(principal);
 
-        setTitle("Torneo_Super_Doom_V10.2.25_Machine_Ultra_Prime_Final.V2.V8");
+        setTitle("antiprime:(");
         setSize(Escalar.X(1920), Escalar.Y(1080));
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -53,18 +53,19 @@ public class PanelTabla extends JPanel {
         add(scrollPane, BorderLayout.CENTER);
     }
     public void cargarDesdeTorneo() {
+        tabla.removeAll();
         List<Object[]> datos = new ArrayList<>();
         int posicion = 1;
         if (PanelPrincipal.torneo != null) {
             for (Participante p : PanelPrincipal.torneo.participante) {
                 int pts = p.getPuntos();
                 datos.add(new Object[]{
-                        posicion++,         // #
-                        p.getNombre(),      // Equipo
-                        p.getWins(),        // PG
-                        p.getDraws(),       // PE
-                        p.getLosses(),      // PP
-                        pts                 // Pts
+                        posicion++,
+                        p.getNombre(),
+                        p.getWins(),
+                        p.getDraws(),
+                        p.getLosses(),
+                        pts
                 });
             }
             actualizarTabla(datos);

@@ -7,6 +7,7 @@ import java.awt.*;
 public class PanelBienvenida extends JPanel {
     private Texto textoBienvenida;
 
+
     public PanelBienvenida(){
         super();
         setLayout(null);
@@ -58,6 +59,8 @@ public class PanelBienvenida extends JPanel {
             }
             setVisible(false);
             PanelPrincipal.agregarParticipantes.setVisible(true);
+
+
         });
         add(calendario);
         add(calendarioFinal);
@@ -69,4 +72,5 @@ public class PanelBienvenida extends JPanel {
         add(disciplinaName.crear());
         add(formato);
     }
+
 }

@@ -1,4 +1,6 @@
 package Algoritmo;
+import View.PanelPrincipal;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -19,6 +21,7 @@ public class Torneo {
         this.participante = new ArrayList<>();
         this.fechaInicial=fechaInicial;
         this.fechaTermino=fechaTermino;
+
     }
 
     public void agregarParticipantes(Participante participante){

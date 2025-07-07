@@ -6,11 +6,11 @@ import javax.swing.*;
 
 public class PanelPrincipal extends JPanel {
     public static Torneo torneo;
-    private PanelBienvenida bienvenida;
+    public static PanelBienvenida bienvenida;
     public static PanelTorneoDirecto MSI;
     public static PanelAgregarParticipantes agregarParticipantes;
     public static PanelTorneoDoble Champions;
-    public static Boton botonBracket;
+    public static PanelLigaSimple liga;
     public PanelPrincipal(){
         super();
         setLayout(null);
@@ -18,12 +18,14 @@ public class PanelPrincipal extends JPanel {
         setOpaque(false);
         bienvenida = new PanelBienvenida();
         Champions = new PanelTorneoDoble();
+        liga = new PanelLigaSimple();
         agregarParticipantes = new PanelAgregarParticipantes();
         MSI = new PanelTorneoDirecto();
         add(Champions);
         add(agregarParticipantes);
         add(bienvenida);
         add(MSI);
+        add(liga);
     }
 
 }

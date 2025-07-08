@@ -18,7 +18,7 @@ public class PanelTorneoDirecto extends JPanel {
         setLayout(null);
         setSize(Escalar.X(1920), Escalar.Y(1080));
         setOpaque(false);
-        buttomMatches = new GeneradorEncuentros(100,100,350,300);
+        buttomMatches = new GeneradorEncuentros(700,900,200,100);
         add(buttomMatches);
     }
     protected void paintComponent(Graphics g) {
@@ -27,32 +27,38 @@ public class PanelTorneoDirecto extends JPanel {
             Texto titulo = new Texto(PanelPrincipal.torneo.getNombre(), 0, 25, 1920, 90);
             titulo.setHorizontalAlignment(JTextField.CENTER);
             add(titulo);
-            int CantidadParticipantes = PanelPrincipal.torneo.getParticipantes().size();
-            switch (CantidadParticipantes) {
-                case 4 -> img = "ElimDirecta4.png";
-                case 8 -> img = "ElimDirecta8.png";
-                case 16 -> img = "ElimDirecta16.png";
-            }
             int k = 0;
             if (cont == 0) {
+                int CantidadParticipantes = PanelPrincipal.torneo.getParticipantes().size();
+                switch (CantidadParticipantes) {
+                    case 4 -> img = "ElimDirecta4.png";
+                    case 8 -> img = "ElimDirecta8.png";
+                    case 16 -> img = "ElimDirecta16.png";
+                }
+                Texto vs = new Texto("VS", 725 , 910, 450, 85);
                 for (int i = 0; i < 2; i++) {
                     sumY = 0;
                     for (int j = 0; j < CantidadParticipantes / 2; j++) {
                         if (CantidadParticipantes == 4) {
                             Texto texto = new Texto(PanelPrincipal.torneo.getParticipantes().get(k).getNombre(), 110 + i * 1247, 278 + j * 584, 450, 85);
                             texto.setHorizontalAlignment(JTextField.CENTER);
-                            texto.setFont(new Font("SansSerif", Font.PLAIN, Escalar.X(45)));
                             add(texto);
+                            vs.setHorizontalAlignment(JTextField.CENTER);
+                            vs.setBounds(725,340,450,85);
+                            add(vs);
+                            buttomMatches.setPosicion(700,330);
                         } else if (CantidadParticipantes == 8) {
                             Texto texto = new Texto(PanelPrincipal.torneo.getParticipantes().get(k).getNombre(), 138 + i * 1348, 140 + j * 268, 300, 60);
                             texto.setHorizontalAlignment(JTextField.CENTER);
-                            texto.setFont(new Font("SansSerif", Font.PLAIN, Escalar.X(45)));
                             add(texto);
+                            vs.setHorizontalAlignment(JTextField.CENTER);
+                            add(vs);
                         } else if (CantidadParticipantes == 16) {
                             Texto texto = new Texto(PanelPrincipal.torneo.getParticipantes().get(k).getNombre(), 75 + i * 1518, 118 + sumY, 250, 45);
                             texto.setHorizontalAlignment(JTextField.CENTER);
-                            texto.setFont(new Font("SansSerif", Font.PLAIN, Escalar.X(45)));
                             add(texto);
+                            vs.setHorizontalAlignment(JTextField.CENTER);
+                            add(vs);
                             if (j % 2 == 0) {
                                 sumY += 133;
                             } else {

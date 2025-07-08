@@ -14,6 +14,6 @@ public class Texto extends JLabel {
         setBounds(Escalar.X(posX),Escalar.Y(posY),Escalar.X(ancho),Escalar.Y(alto));
     }
     static {
-        Font = new Font("SansSerif", java.awt.Font.BOLD, Escalar.X(65));
+        Font = new Font("SansSerif", java.awt.Font.BOLD, Escalar.X(40));
     }
 }

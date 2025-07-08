@@ -11,6 +11,8 @@ public class PanelTorneoDirecto extends JPanel {
     private String img;
     private int sumY;
     private int cont = 0;
+    private int cont_1=0;
+    private int cont_2=0;
     private GeneradorEncuentros buttomMatches;
     public PanelTorneoDirecto(){
         super();
@@ -70,6 +72,7 @@ public class PanelTorneoDirecto extends JPanel {
                 }
                 this.cont++;
             }
+
         }
 
         try {
@@ -86,5 +89,20 @@ public class PanelTorneoDirecto extends JPanel {
     }
     public void setText(String nombre1,String nombre2){
         buttomMatches.setTextButtom(nombre1,nombre2);
+    }
+    public void mostrarGanador() {
+        if (!PanelPrincipal.torneo.ganadores.isEmpty()) {
+            Texto ganador = new Texto(PanelPrincipal.torneo.ganadores.removeFirst().getNombre(), 260 + cont_2 * 1100, 183 + cont_1 * 230, 200, 45);
+            ganador.setFont(new Font("SansSerif", Font.PLAIN, Escalar.X(40)));
+            ganador.setHorizontalAlignment(JTextField.CENTER);
+            add(ganador);
+            Ventana.actualizar();
+            if (cont_1 == 3) {
+                cont_1 = 0;
+                cont_2 = 1;
+            } else {
+                cont_1++;
+            }
+        }
     }
 }

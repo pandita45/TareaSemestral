@@ -35,6 +35,7 @@ public class GeneradorEncuentros extends JPanel {
                 }
             }
             jugarEncuentro();
+            PanelPrincipal.MSI.mostrarGanador();
         });
         boton2.addActionListener(e -> {
             PanelPrincipal.torneo.selectWinner = true;
@@ -50,6 +51,7 @@ public class GeneradorEncuentros extends JPanel {
                 }
             }
             jugarEncuentro();
+            PanelPrincipal.MSI.mostrarGanador();
         });
 
         add(boton1);
@@ -62,10 +64,6 @@ public class GeneradorEncuentros extends JPanel {
             for (int i = 0; i <= cantidadParticipantes - 2; i += 2) {
                 temp.add(new Encuentro(PanelPrincipal.torneo.getParticipantes().get(i), PanelPrincipal.torneo.getParticipantes().get(i + 1), new Date()));
             }
-            for (int i = 0; i < temp.size(); i++) {
-                System.out.println(temp.get(i).getJugadorUno().getNombre() + "  VS  " + temp.get(i).getJugadorDos().getNombre());
-            }
-            System.out.println("RONDA TERMINADA");
             return temp;
         }
         else {

@@ -10,37 +10,44 @@ public class PanelAgregarParticipantes extends JPanel {
     private Boton individual;
     private Boton equipo;
     private Organizacion eleccion;
+    private boolean opcion;
     public PanelAgregarParticipantes() {
         super();
         setVisible(false);
         setLayout(null);
         setSize(Escalar.X(1920), Escalar.Y(1080));
         setOpaque(false);
+        Boton confirmar = new Boton("Continuar", 1500,900,350,80);
+        confirmar.setColor("#4CAF50");
+
         titulo = new Texto("Seleccione el tipo de participante",450,100,1650,90);
         individual = new Boton("Individual",542,500,350,80);
         equipo = new Boton("Equipo",1027,500,350,80);
+
         individual.addActionListener(e -> {
-            eleccion = new Organizacion(PanelPrincipal.torneo,true,"Deportistas.txt");
-            setVisible(false);
-            switch (PanelPrincipal.torneo.getFormato()){
-                case "EliminacionDirecta":
-                    PanelPrincipal.MSI.setVisible(true);
-                    break;
-                case "EliminacionDoble":
-                    PanelPrincipal.Champions.setVisible(true);
-                    break;
-                case "LigaSimple":
-                    PanelPrincipal.liga.setVisible(true);
-                    break;
-            }
+            JOptionPane.showMessageDialog(Ventana.getInstancia(), "Se ha eligido deportistas");
+            opcion = true;
         });
         equipo.addActionListener(e -> {
-            eleccion = new Organizacion(PanelPrincipal.torneo,false,"Equipos.txt");
+            opcion = false;
+            JOptionPane.showMessageDialog(Ventana.getInstancia(), "Se ha eligido equipo");
+        });
+
+        confirmar.addActionListener(e ->{
             setVisible(false);
+
+            if(opcion){
+                eleccion = new Organizacion(PanelPrincipal.torneo,true,"Deportistas.txt");
+            }
+            else {
+                eleccion = new Organizacion(PanelPrincipal.torneo,false,"Equipos.txt");
+            }
+
             switch (PanelPrincipal.torneo.getFormato()){
                 case "EliminacionDirecta":
                     PanelPrincipal.MSI.setVisible(true);
-                    PanelPrincipal.MSI.ayuda.GenerarYJugarEncuentros();
+                    PanelPrincipal.MSI.generarEncuentros();
+                    PanelPrincipal.MSI.setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
                     break;
                 case "EliminacionDoble":
                     PanelPrincipal.Champions.setVisible(true);
@@ -50,6 +57,7 @@ public class PanelAgregarParticipantes extends JPanel {
                     break;
             }
         });
+        add(confirmar);
         add(titulo);
         add(individual);
         add(equipo);

@@ -1,10 +1,13 @@
 package View;
 
+import Algoritmo.Encuentro;
 import Algoritmo.Torneo;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class PanelPrincipal extends JPanel {
+    public static ArrayList<Encuentro> matches;
     public static Torneo torneo;
     public static PanelBienvenida bienvenida;
     public static PanelTorneoDirecto MSI;

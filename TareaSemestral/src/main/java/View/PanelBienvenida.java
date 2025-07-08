@@ -26,8 +26,8 @@ public class PanelBienvenida extends JPanel {
         CalendarioConHora calendario = new CalendarioConHora(calendarioInicio,522,680);
         CalendarioConHora calendarioFinal = new CalendarioConHora(calendarioTermino,1003,680);
 
-
         confirmarDatos.setColor("#4CAF50");
+
         menu.setBackground(Color.decode("#146D8B").darker());
         menu.setBorder(new LineBorder(Color.gray,2));
 

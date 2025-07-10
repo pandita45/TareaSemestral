@@ -38,7 +38,6 @@ public class PanelTabla extends JPanel {
         tabla.setBorder(null);
         tabla.setOpaque(false);
         DefaultTableCellRenderer centrado = new DefaultTableCellRenderer();
-        centrado.setHorizontalAlignment(SwingConstants.CENTER);
         for (int i = 0; i < tabla.getColumnCount(); i++) {
             tabla.getColumnModel().getColumn(i).setCellRenderer(centrado);
         }

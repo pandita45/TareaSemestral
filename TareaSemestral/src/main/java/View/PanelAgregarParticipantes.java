@@ -20,7 +20,8 @@ public class PanelAgregarParticipantes extends JPanel {
         Boton confirmar = new Boton("Continuar", 1500,900,350,80);
         confirmar.setColor("#4CAF50");
 
-        titulo = new Texto("Seleccione el tipo de participante",450,100,1650,90);
+        titulo = new Texto("Seleccione el tipo de participante",0,100,1920,90);
+
         individual = new Boton("Individual",542,500,350,80);
         equipo = new Boton("Equipo",1027,500,350,80);
 

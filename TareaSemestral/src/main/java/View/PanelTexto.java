@@ -21,8 +21,6 @@ public class PanelTexto extends JPanel {
             int k = 0;
             for (int i = 0; i < PanelPrincipal.torneo.getParticipantes().size() / 2; i++) {
                 Texto texto = new Texto(PanelPrincipal.torneo.getParticipantes().get(k).getNombre(), 30, 98 + sumY, 320, 85);
-                texto.setHorizontalAlignment(JTextField.CENTER);
-                texto.setFont(new Font("SansSerif", Font.PLAIN, Escalar.X(45)));
                 add(texto);
                 k++;
                 if (i % 2 == 0) {
@@ -38,8 +36,6 @@ public class PanelTexto extends JPanel {
                 int sumY = 0;
                 for (int i = 0; i < EliminacionDoble.lowerBracket.size() / 2; i++) {
                     Texto texto = new Texto(EliminacionDoble.lowerBracket.get(k).getNombre(), 30, 378 + sumY, 300, 85);
-                    texto.setHorizontalAlignment(JTextField.CENTER);
-                    texto.setFont(new Font("SansSerif", Font.PLAIN, Escalar.X(45)));
                     add(texto);
                     k++;
                     if (i % 2 == 0) {

@@ -36,8 +36,7 @@ public class PanelBienvenida extends JPanel {
         Menu opcion3 = new Menu("Liga simple", "Haz seleccionado Liga simple",formato, 3);
 
         menu.setPreferredSize(new Dimension(Escalar.X(200),Escalar.Y(200)));
-        textoBienvenida = new Texto("Bienvenido, rellene los campos para crear un torneo",158,100,1650,90);
-
+        textoBienvenida = new Texto("Bienvenido, rellene los campos para crear un torneo",0,100,1920,90);
 
         menu.add(opcion1.crear());
         menu.add(opcion2.crear());

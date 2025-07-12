@@ -1,11 +1,7 @@
 package View;
 
-import Algoritmo.Encuentro;
-import Algoritmo.Participante;
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class PanelTorneoDirecto extends JPanel {
@@ -14,7 +10,7 @@ public class PanelTorneoDirecto extends JPanel {
     private int cont = 0;
     private int cont_1=0;
     private int[][] posicionesGanadores;
-    private GeneradorEncuentros buttomMatches;
+    private GeneradorEncuentrosDirecta buttomMatches;
     private int CantidadParticipantes;
     public PanelTorneoDirecto(){
         super();
@@ -49,7 +45,7 @@ public class PanelTorneoDirecto extends JPanel {
                 {995,525},
                 {835,680} //pos ganador del torneo
         };
-        buttomMatches = new GeneradorEncuentros(700,900,200,100);
+        buttomMatches = new GeneradorEncuentrosDirecta(700,900,200,100);
         add(buttomMatches);
     }
     protected void paintComponent(Graphics g) {

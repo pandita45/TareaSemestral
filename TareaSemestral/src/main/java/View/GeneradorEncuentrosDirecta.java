@@ -1,17 +1,18 @@
 package View;
 
 import Algoritmo.Encuentro;
+import Algoritmo.Torneo;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class GeneradorEncuentros extends JPanel {
+public class GeneradorEncuentrosDirecta extends JPanel {
     private Boton boton1;
     private Boton boton2;
     private int ancho;
     private int alto;
-    public GeneradorEncuentros(int x, int y, int ancho, int alto){
+    public GeneradorEncuentrosDirecta(int x, int y, int ancho, int alto){
         super();
         setLayout(null);
         setOpaque(false);
@@ -24,7 +25,6 @@ public class GeneradorEncuentros extends JPanel {
         boton1.addActionListener(e -> {
             PanelPrincipal.torneo.selectWinner = false;
             if(!PanelPrincipal.matches.isEmpty()) {
-                System.out.println(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
                 if (PanelPrincipal.matches.size() == 1) {
                     setTextButtom(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
                     boton1.setText("Continuar");
@@ -36,13 +36,13 @@ public class GeneradorEncuentros extends JPanel {
             }
             jugarEncuentro();
             PanelPrincipal.MSI.mostrarGanador();
+            PanelPrincipal.Champions.mostrarGanador();
         });
         boton2.addActionListener(e -> {
             PanelPrincipal.torneo.selectWinner = true;
             if(!PanelPrincipal.matches.isEmpty()) {
                 System.out.println(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
                 if (PanelPrincipal.matches.size() == 1) {
-                    setTextButtom(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
                     boton1.setText("Continuar");
                     boton2.setText("Continuar");
                 }
@@ -52,6 +52,7 @@ public class GeneradorEncuentros extends JPanel {
             }
             jugarEncuentro();
             PanelPrincipal.MSI.mostrarGanador();
+            PanelPrincipal.Champions.mostrarGanador();
         });
         add(boton1);
         add(boton2);
@@ -69,7 +70,6 @@ public class GeneradorEncuentros extends JPanel {
             JOptionPane.showMessageDialog(Ventana.getInstancia(), "El ganador es " + PanelPrincipal.torneo.getParticipantes().getFirst().getNombre());
             return null;
         }
-
     }
     public void setTextButtom(String nombre1, String nombre2){
         this.boton1.setText(nombre1);

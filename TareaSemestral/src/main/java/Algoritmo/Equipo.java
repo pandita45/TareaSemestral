@@ -23,7 +23,7 @@ public class Equipo extends Participante{
         return super.getNombre();
     }
 
-    public ArrayList<Deportista> getMiembros() {
+    public ArrayList<Deportista> getMiembros(){
         return miembros;
     }
 

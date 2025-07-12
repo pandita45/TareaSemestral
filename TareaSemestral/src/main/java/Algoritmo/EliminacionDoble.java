@@ -32,6 +32,7 @@ public class EliminacionDoble implements FormatoDeTorneo{
         lowerBracket.remove(a);
     }
 
+
     public String print(){
         return "EliminacionDoble";
     }

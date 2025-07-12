@@ -4,6 +4,8 @@ import View.PanelPrincipal;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static Algoritmo.EliminacionDoble.lowerBracket;
+
 
 public class Torneo {
     public static boolean selectWinner = true;
@@ -57,5 +59,12 @@ public class Torneo {
 
     public ArrayList<Participante> getParticipantes() {
         return participante;
+    }
+    public ArrayList<Participante>getLowerBracket() {
+        return lowerBracket;
+    }
+
+    public ArrayList<Participante> getGanadores() {
+        return ganadores;
     }
 }

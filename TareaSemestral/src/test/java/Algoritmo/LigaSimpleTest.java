@@ -37,8 +37,8 @@ public class LigaSimpleTest {
     @Test
     public void jugar() {
         torneo.draw = true; //Empate
-        torneo.jugar(e);
-        assertEquals(1,jugador1.getPuntos());
+        torneo.jugar(e);                                 // Se crea un encuentro que termina en empate
+        assertEquals(1,jugador1.getPuntos());    // Se comprueba la cantidad de puntos y la cantidad de empates
         assertEquals(1,jugador2.getPuntos());
         assertEquals(1,jugador1.getDraws());
         assertEquals(1,jugador2.getDraws());
@@ -46,8 +46,8 @@ public class LigaSimpleTest {
 
         torneo.selectWinner = true; // Gana el primer jugador
         torneo.jugar(e1);
-        assertEquals(3,jugador3.getPuntos());
-        assertEquals(0,jugador4.getPuntos());
+        assertEquals(3,jugador3.getPuntos());     // Se crea un encuentro en que gana el primer jugador
+        assertEquals(0,jugador4.getPuntos());     // Se comprueba la cantidad de puntos, victorias y derrotas
         assertEquals(1,jugador3.getWins());
         assertEquals(0,jugador3.getLosses());
         assertEquals(0,jugador4.getWins());
@@ -55,7 +55,7 @@ public class LigaSimpleTest {
 
         torneo.selectWinner = false; // Gana el segundo jugador
         torneo.jugar(e2);
-        assertEquals(0,jugador5.getPuntos());
+        assertEquals(0,jugador5.getPuntos());  //Analogo al anterior
         assertEquals(3,jugador6.getPuntos());
         assertEquals(0,jugador5.getWins());
         assertEquals(1,jugador5.getLosses());

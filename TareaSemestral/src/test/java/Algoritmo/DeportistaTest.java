@@ -15,7 +15,7 @@ public class DeportistaTest {
     }
     @Test
     public void agregarPuntos() {
-        jugador1.agregarPuntos(23);
+        jugador1.agregarPuntos(23);                     //Se agregan puntos a deportista y se comprueba si se agregan
         assertEquals(23,jugador1.getPuntos());
     }
 }

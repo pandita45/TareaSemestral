@@ -18,21 +18,21 @@ class EquipoTest {
     }
     @Test
     void agregarPuntos() {
-        e1.agregarPuntos(3);
+        e1.agregarPuntos(3); // se agregan puntos a ambos equipos
         e2.agregarPuntos(1);
-        assertEquals(3,e1.getPuntos());
+        assertEquals(3,e1.getPuntos());  // Se comprueba la cantidad
         assertEquals(1,e2.getPuntos());
-        e1.agregarPuntos(23);
+        e1.agregarPuntos(23);      // Se le suman mas puntos
         e2.agregarPuntos(0);
-        assertEquals(3+23,e1.getPuntos());
+        assertEquals(3+23,e1.getPuntos());  //Se comprueba la cantidad
         assertEquals(1,e2.getPuntos());
     }
 
     @Test
     void agregarDeportista() {
-        e1.agregarDeportista(d);
+        e1.agregarDeportista(d);      //Se añaden 2 deportistas a un equipo
         e1.agregarDeportista(d1);
-       assertEquals(d,e1.getMiembros().get(0));
+       assertEquals(d,e1.getMiembros().get(0));  //Se comprueba que esten en el array de miembros
        assertEquals(d1,e1.getMiembros().get(1));
     }
 }

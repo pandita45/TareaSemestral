@@ -1,6 +1,7 @@
 package View;
 
 import Algoritmo.Participante;
+import Algoritmo.Torneo;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -38,6 +39,8 @@ public class PanelTabla extends JPanel {
         tabla.setBorder(null);
         tabla.setOpaque(false);
         DefaultTableCellRenderer centrado = new DefaultTableCellRenderer();
+        centrado.setHorizontalAlignment(SwingConstants.CENTER);
+
         for (int i = 0; i < tabla.getColumnCount(); i++) {
             tabla.getColumnModel().getColumn(i).setCellRenderer(centrado);
         }
@@ -56,7 +59,7 @@ public class PanelTabla extends JPanel {
         List<Object[]> datos = new ArrayList<>();
         int posicion = 1;
         if (PanelPrincipal.torneo != null) {
-            for (Participante p : PanelPrincipal.torneo.participante) {
+            for (Participante p : Torneo.participante) {
                 int pts = p.getPuntos();
                 datos.add(new Object[]{
                         posicion++,
@@ -69,11 +72,16 @@ public class PanelTabla extends JPanel {
             }
             actualizarTabla(datos);
         }
+
+
     }
     public void actualizarTabla(List<Object[]> nuevasFilas) {
         modelo.setRowCount(0);
         for (Object[] fila : nuevasFilas) {
             modelo.addRow(fila);
         }
+    }
+    public String getGanador(){
+        return (String) modelo.getValueAt(0, 1);
     }
 }

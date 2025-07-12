@@ -55,6 +55,8 @@ public class PanelAgregarParticipantes extends JPanel {
                     break;
                 case "LigaSimple":
                     PanelPrincipal.liga.setVisible(true);
+                    PanelPrincipal.liga.generarEncuentro();
+                    PanelPrincipal.liga.setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
                     break;
             }
         });

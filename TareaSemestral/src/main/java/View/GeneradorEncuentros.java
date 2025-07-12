@@ -53,7 +53,6 @@ public class GeneradorEncuentros extends JPanel {
             jugarEncuentro();
             PanelPrincipal.MSI.mostrarGanador();
         });
-
         add(boton1);
         add(boton2);
     }

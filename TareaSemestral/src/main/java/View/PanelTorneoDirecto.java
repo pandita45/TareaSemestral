@@ -1,5 +1,7 @@
 package View;
 
+import Algoritmo.Torneo;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
@@ -102,7 +104,7 @@ public class PanelTorneoDirecto extends JPanel {
         }
     }
     public void generarEncuentros(){
-        PanelPrincipal.matches = buttomMatches.generarEncuentros();
+        PanelPrincipal.matches = buttomMatches.generarEncuentros(Torneo.participante);
     }
     public void setText(String nombre1,String nombre2){
         buttomMatches.setTextButtom(nombre1,nombre2);

@@ -3,6 +3,7 @@ package View;
 import Algoritmo.Deportista;
 import Algoritmo.EliminacionDoble;
 import Algoritmo.Encuentro;
+import Algoritmo.Torneo;
 
 import javax.swing.*;
 import java.awt.*;
@@ -63,8 +64,9 @@ public class PanelTorneoDoble extends JPanel {
                 {1240,498},
                 {1630,390},
         };
-        nombresUpper = new PanelTexto(true);
-        nombresLower = new PanelTexto(false);
+        nombresUpper = new PanelTexto(false ,posicionesGanadores);
+        nombresLower = new PanelTexto(true,posicionesGanadores);
+
         botonBracket = new Boton("Lower Bracket", 1500,900,350,80);
         botonBracket.addActionListener(e -> {
             if (queBracket){
@@ -76,8 +78,10 @@ public class PanelTorneoDoble extends JPanel {
                 queBracket = true;
             }
         });
+
         EncuentrosUpper = new GeneradorEncuentrosDirecta(1100,700,200,100);
         EncuentrosLower = new GeneradorEncuentrosDirecta(1100,700,200,100);
+
         nombresLower.add(EncuentrosLower);
         nombresUpper.add(EncuentrosUpper);
         add(botonBracket);
@@ -118,11 +122,9 @@ public class PanelTorneoDoble extends JPanel {
     }
     public void escribir(){
         if(cont == 0){
-        nombresUpper.escribir();
+            nombresUpper.escribir();
+        }
         cont++;
-        }
-        else{
-        }
     }
     public void mostrarGanador() {
         if (LOU && PanelPrincipal.torneo != null) {
@@ -140,10 +142,10 @@ public class PanelTorneoDoble extends JPanel {
             cont2++;
         }
     }
-    public ArrayList<Encuentro> generarEncuentrosUpper(){
-        return EncuentrosUpper.generarEncuentros();
+    public void generarEncuentrosUpper(){
+        PanelPrincipal.matches = EncuentrosUpper.generarEncuentros(Torneo.participante);
     }
     public ArrayList<Encuentro> generarEncuentrosLower(){
-        return EncuentrosLower.generarEncuentros();
+        return EncuentrosLower.generarEncuentros(EliminacionDoble.lowerBracket);
     }
 }

@@ -1,6 +1,7 @@
 package View;
 
 import Algoritmo.Encuentro;
+import Algoritmo.Participante;
 import Algoritmo.Torneo;
 
 import javax.swing.*;
@@ -30,7 +31,7 @@ public class GeneradorEncuentrosDirecta extends JPanel {
                     boton1.setText("Continuar");
                     boton2.setText("Continuar");
                 }
-                else if (PanelPrincipal.matches.size() > 1) {
+                else {
                     setTextButtom(PanelPrincipal.matches.get(1).getJugadorUno().getNombre(), PanelPrincipal.matches.get(1).getJugadorDos().getNombre());
                 }
             }
@@ -57,12 +58,12 @@ public class GeneradorEncuentrosDirecta extends JPanel {
         add(boton1);
         add(boton2);
     }
-    public ArrayList<Encuentro> generarEncuentros() {
+    public ArrayList<Encuentro> generarEncuentros(ArrayList<Participante> participantes) {
         ArrayList<Encuentro> temp = new ArrayList<>();
-        int cantidadParticipantes = PanelPrincipal.torneo.getParticipantes().size();
+        int cantidadParticipantes = participantes.size();
         if (cantidadParticipantes > 1) {
             for (int i = 0; i <= cantidadParticipantes - 2; i += 2) {
-                temp.add(new Encuentro(PanelPrincipal.torneo.getParticipantes().get(i), PanelPrincipal.torneo.getParticipantes().get(i + 1), new Date()));
+                temp.add(new Encuentro(participantes.get(i), participantes.get(i + 1), new Date()));
             }
             return temp;
         }
@@ -83,8 +84,8 @@ public class GeneradorEncuentrosDirecta extends JPanel {
         if(!PanelPrincipal.matches.isEmpty()){
             PanelPrincipal.torneo.jugar(PanelPrincipal.matches.removeFirst());
         }
-        else if (generarEncuentros()!=null){
-            PanelPrincipal.matches = generarEncuentros();
+        else if (generarEncuentros(Torneo.participante)!=null){
+            PanelPrincipal.matches = generarEncuentros(Torneo.participante);
             setTextButtom(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
         }
     }

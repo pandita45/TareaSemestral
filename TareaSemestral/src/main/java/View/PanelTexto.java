@@ -6,45 +6,31 @@ import java.awt.*;
 
 public class PanelTexto extends JPanel {
     public static Boolean LOU;
-    public PanelTexto(boolean LOU){
+    private int[][] posiciones;
+    public PanelTexto(boolean LOU,int[][] posiciones){
         super();
         setLayout(null);
         setSize(Escalar.X(1920),Escalar.Y(1080));
         setOpaque(false);
         this.LOU = LOU;
+        this.posiciones = posiciones;
     }
 
     public void escribir() {
         if (LOU && PanelPrincipal.torneo != null) {
-            int sumY = 0;
-            int k = 0;
-            for (int i = 0; i < PanelPrincipal.torneo.getParticipantes().size() / 2; i++) {
-                Texto texto = new Texto(PanelPrincipal.torneo.getParticipantes().get(k).getNombre(), 75, 115 + sumY, 250, 50);
-                add(texto);
-                k++;
-                if (i % 2 == 0) {
-                    sumY += 130;
-                } else {
-                    sumY += 98;
 
-                }
+            for (int i = 0; i < 8; i++) {
+                Texto texto = new Texto(PanelPrincipal.torneo.getParticipantes().get(i).getNombre(), posiciones[i][0], posiciones[i][1], 250, 50);
+                add(texto);
             }
         } else {
-            int k = 0;
             if (EliminacionDoble.lowerBracket != null) {
-                int sumY = 0;
-                for (int i = 0; i < EliminacionDoble.lowerBracket.size() / 2; i++) {
-                    Texto texto = new Texto(EliminacionDoble.lowerBracket.get(k).getNombre(), 30, 378 + sumY, 300, 85);
+                for (int i = 0; i < EliminacionDoble.lowerBracket.size(); i++) {
+                    Texto texto = new Texto(EliminacionDoble.lowerBracket.get(i).getNombre(), 30, 378 , 300, 85);
                     add(texto);
-                    k++;
-                    if (i % 2 == 0) {
-                        sumY += 130;
-                    } else {
-                        sumY += 80;
-
-                    }
                 }
             }
         }
+        Ventana.actualizar();
     }
 }

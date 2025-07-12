@@ -5,14 +5,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelTexto extends JPanel {
-    private Boolean LOU;
+    public static Boolean LOU;
     public PanelTexto(boolean LOU){
         super();
         setLayout(null);
         setSize(Escalar.X(1920),Escalar.Y(1080));
         setOpaque(false);
         this.LOU = LOU;
-
     }
 
     public void escribir() {
@@ -20,7 +19,7 @@ public class PanelTexto extends JPanel {
             int sumY = 0;
             int k = 0;
             for (int i = 0; i < PanelPrincipal.torneo.getParticipantes().size() / 2; i++) {
-                Texto texto = new Texto(PanelPrincipal.torneo.getParticipantes().get(k).getNombre(), 30, 98 + sumY, 320, 85);
+                Texto texto = new Texto(PanelPrincipal.torneo.getParticipantes().get(k).getNombre(), 75, 115 + sumY, 250, 50);
                 add(texto);
                 k++;
                 if (i % 2 == 0) {
@@ -47,6 +46,5 @@ public class PanelTexto extends JPanel {
                 }
             }
         }
-
     }
 }

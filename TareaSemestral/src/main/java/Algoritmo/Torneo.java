@@ -12,6 +12,7 @@ public class Torneo {
     public static boolean draw= false;
     public static ArrayList<Participante> participante;
     public static ArrayList<Participante> ganadores;
+    public static ArrayList<Participante> perdedores;
     private String nombre;
     private String disciplina;
     private FormatoDeTorneo formato;
@@ -23,8 +24,9 @@ public class Torneo {
         this.nombre=nombre;
         this.disciplina=disciplina;
         this.formato=formato;
-        this.participante = new ArrayList<>();
-        this.ganadores=new ArrayList<>();
+        participante = new ArrayList<>();
+        ganadores=new ArrayList<>();
+        perdedores = new ArrayList<>();
         this.fechaInicial=fechaInicial;
         this.fechaTermino=fechaTermino;
 

@@ -3,7 +3,6 @@ package View;
 import Algoritmo.Encuentro;
 import Algoritmo.Participante;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -24,10 +23,5 @@ public class GenerarEncuentrosDoble{
             return null;
         }
     }
-    public ArrayList<Encuentro> generarEncuentrosLower(ArrayList<Encuentro> encuentros, ArrayList<Participante> participantes){
-        if(participantes.size() >= 2){
-            encuentros.add(new Encuentro(participantes.get(0),participantes.get(1),new Date()));
-        }
-        return encuentros;
-    }
+
 }

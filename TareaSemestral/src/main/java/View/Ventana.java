@@ -14,7 +14,7 @@ public class Ventana extends JFrame{
         principal = new PanelPrincipal();
         add(principal);
 
-        setTitle("antiprime:(");
+        setTitle("Torneo super Wuau");
         setSize(Escalar.X(1920), Escalar.Y(1080));
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

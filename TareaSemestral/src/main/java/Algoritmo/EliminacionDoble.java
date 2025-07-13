@@ -14,6 +14,7 @@ public class EliminacionDoble implements FormatoDeTorneo{
             }
             else{
                 lowerBracket.add(partida.getJugadorUno());
+                Torneo.perdedores.add(partida.getJugadorUno());
                 Torneo.ganadores.add(partida.getJugadorDos());
                 Torneo.participante.remove(partida.getJugadorUno());
             }
@@ -24,6 +25,7 @@ public class EliminacionDoble implements FormatoDeTorneo{
             }
             else{
                 lowerBracket.add(partida.getJugadorDos());
+                Torneo.perdedores.add(partida.getJugadorDos());
                 Torneo.ganadores.add(partida.getJugadorUno());
                 Torneo.participante.remove(partida.getJugadorDos());
             }

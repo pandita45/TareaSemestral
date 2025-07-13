@@ -16,6 +16,7 @@ public class PanelTorneoDoble extends JPanel {
     public static Boton botonBracket;
     public static Boolean queBracket = true;
     public static Boolean estoyEnUpper = false;
+    public ArrayList<Texto> textos;
     public Boton boton1;
     public Boton boton2;
     private PanelTexto nombresUpper;
@@ -23,12 +24,16 @@ public class PanelTorneoDoble extends JPanel {
     private GenerarEncuentrosDoble encuentrosDoble;
     private int[][] posicionesGanadores;
     private ArrayList<Encuentro> lowerBracket;
-    private int cont1 = 8;
-    private int cont2 = 1;
+    private int sneakyCont2 = 8;
+    private int sneakyCont3 = 18;
+    private int contRonda = 0;
+    //private int cont1 = 8;
+    //private int cont2 = 1;
     private Participante ganadorUpper;
 
     public PanelTorneoDoble() {
         super();
+        textos = new ArrayList<>();
         encuentrosDoble = new GenerarEncuentrosDoble();
         setVisible(false);
         setLayout(null);
@@ -51,24 +56,38 @@ public class PanelTorneoDoble extends JPanel {
                 {475, 745},
                 {670, 525},
                 {1125, 140},
-                {1420, 140},
+                {1450, 140},
                 {1340, 275}, //ultimo upper bracket index = 17
                 {55, 395},
                 {55, 530},
                 {55, 600},
                 {55, 735},
-                {450, 325},
-                {450, 530},
                 {450, 460},
                 {450, 665},
+                {450, 325},
+                {450, 530},
                 {840, 390},
                 {840, 605},
-                {1240, 320},
                 {1240, 498},
-                {1630, 390},
+                {1240, 285},
+                {1630, 390}, // 30
         };
         nombresUpper = new PanelTexto(false, posicionesGanadores);
         nombresLower = new PanelTexto(true, posicionesGanadores);
+        for (int i = 0; i < 18; i++) {
+            String a =  String.valueOf(i);
+            Texto ganador = new Texto(a, 0, 0, 0, 0);
+            ganador.setBound(posicionesGanadores[i][0], posicionesGanadores[i][1], 250, 50);
+            nombresUpper.add(ganador);
+            textos.add(ganador);
+        }
+        for (int i = 18; i < 31; i++) {
+            String a =  String.valueOf(i);
+            Texto ganador = new Texto(a, 0, 0, 0, 0);
+            ganador.setBound(posicionesGanadores[i][0], posicionesGanadores[i][1], 250, 50);
+            nombresLower.add(ganador);
+            textos.add(ganador);
+        }
 
         botonBracket = new Boton("Lower Bracket", 1500, 900, 350, 80);
         botonBracket.addActionListener(e -> {
@@ -86,8 +105,8 @@ public class PanelTorneoDoble extends JPanel {
 
 
         boton1.addActionListener(e -> {
-            if (queBracket) {
-                Torneo.selectWinner = false;
+            Torneo.selectWinner = false; // gana el jugador 1
+            if (queBracket) { //estas en el upper Bracket
                 if (!PanelPrincipal.matches.isEmpty()) {
                     if (PanelPrincipal.matches.size() == 1) {
                         setTextButtom(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
@@ -96,11 +115,35 @@ public class PanelTorneoDoble extends JPanel {
                     } else {
                         setTextButtom(PanelPrincipal.matches.get(1).getJugadorUno().getNombre(), PanelPrincipal.matches.get(1).getJugadorDos().getNombre());
                     }
+                    if(!Torneo.hayEnfrentamientoEnLower) { //no hay enfrentamiento en lower
+                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                        textos.get(sneakyCont2).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                        sneakyCont2++;
+                        sneakyCont3++;
+                    }
+                    else{ //hay enfrentamiento en lower
+                        if(contRonda < 1) {
+                            textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                            sneakyCont3++;
+                            contRonda++;
+                        }
+                        else{
+                            textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                            sneakyCont3++;
+                            System.out.println("SEBAAAA LA CAASSAAA CTM");
+
+                        }
+                    }
                     jugarEncuentro(PanelPrincipal.matches);
+                    for(Encuentro encuentiokerif: PanelPrincipal.matches){
+                        System.out.println(encuentiokerif.getJugadorUno().getNombre() +" VS " + encuentiokerif.getJugadorDos().getNombre());
+                    }
+                    for(Participante efe: Torneo.participante){
+                        System.out.println(efe.getNombre() +": " + sneakyCont2 + ": " + sneakyCont3);
+                    }
                 }
             }
-            else{
-                Torneo.selectWinner = false;
+            else{ // Estas en Lower Bracket
                 if (!PanelPrincipal.matches.isEmpty()) {
                     if (PanelPrincipal.matches.size() == 1) {
                         setTextButtom(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
@@ -109,16 +152,33 @@ public class PanelTorneoDoble extends JPanel {
                     } else {
                         setTextButtom(PanelPrincipal.matches.get(1).getJugadorUno().getNombre(), PanelPrincipal.matches.get(1).getJugadorDos().getNombre());
                     }
+                    if(!Torneo.hayEnfrentamientoEnLower){ //no hay enfrentamiento en lower
+                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                        textos.get(sneakyCont2).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                        sneakyCont2++;
+                        sneakyCont3++;
+                    }
+                    else{
+                        if(contRonda < 2) {
+                            textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                            sneakyCont3++;
+                            contRonda++;
+                        }
+                        else{
+                            textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                            sneakyCont3++;
+                            System.out.println("SEBA LA CASA");
+                        }
+                    }
                     jugarEncuentro(PanelPrincipal.matches);
+                    for(Encuentro encuentiokerif: PanelPrincipal.matches){
+                        System.out.println(encuentiokerif.getJugadorUno().getNombre() +" VS " + encuentiokerif.getJugadorDos().getNombre());
+                    }
+                    for(Participante efe: Torneo.participante){
+                        System.out.println(efe.getNombre() +": " + sneakyCont2 + ": " + sneakyCont3);
+                    }
                 }
             }
-            for (Participante p : PanelPrincipal.torneo.getParticipantes()) {
-                System.out.println(p.getNombre() + " ");
-            }
-            for (Participante p : PanelPrincipal.torneo.getLowerBracket()) {
-                System.out.print(p.getNombre() + " ");
-            }
-            PanelPrincipal.Champions.mostrarGanador();
         });
         boton2.addActionListener(e -> {
             if (queBracket) {
@@ -133,12 +193,57 @@ public class PanelTorneoDoble extends JPanel {
                         setTextButtom(PanelPrincipal.matches.get(1).getJugadorUno().getNombre(), PanelPrincipal.matches.get(1).getJugadorDos().getNombre());
                     }
                 }
+                if(!Torneo.hayEnfrentamientoEnLower){ //no hay enfrentamiento en lower
+                    textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                    textos.get(sneakyCont2).setText(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                    sneakyCont2++;
+                    sneakyCont3++;
+                }
+                else{
+                    if(contRonda < 1) {
+                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                        sneakyCont3++;
+                        contRonda++;
+                    }
+                    else{
+                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                        sneakyCont3++;
+                    }
+                }
                 jugarEncuentro(PanelPrincipal.matches);
-                PanelPrincipal.Champions.mostrarGanador();
+                for(Encuentro encuentiokerif: PanelPrincipal.matches){
+                    System.out.println(encuentiokerif.getJugadorUno().getNombre() +" VS " + encuentiokerif.getJugadorDos().getNombre());
+                }
+                for(Participante efe: Torneo.participante){
+                    System.out.println(efe.getNombre() +": " + sneakyCont2 + ": " + sneakyCont3);
+                }
             }
-            if (PanelPrincipal.torneo.getParticipantes().size() == 4) {
-                jugarEncuentro(lowerBracket);
-                PanelPrincipal.Champions.mostrarGanador();
+            else {
+                if(!Torneo.hayEnfrentamientoEnLower){ //no hay enfrentamiento en lower
+                    textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                    textos.get(sneakyCont2).setText(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                    sneakyCont2++;
+                    sneakyCont3++;
+                }
+                else{
+                    if(contRonda < 2) {
+                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                        sneakyCont3++;
+                        contRonda++;
+                    }
+                    else{
+                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                        sneakyCont3++;
+                    }
+                }
+                jugarEncuentro(PanelPrincipal.matches);
+                for(Encuentro encuentiokerif: PanelPrincipal.matches){
+                    System.out.println(encuentiokerif.getJugadorUno().getNombre() +" VS " + encuentiokerif.getJugadorDos().getNombre());
+                }
+                for(Participante efe: Torneo.participante){
+                    System.out.println(efe.getNombre() +": " + sneakyCont2 + ": " + sneakyCont3);
+                }
+
             }
         });
 
@@ -148,26 +253,6 @@ public class PanelTorneoDoble extends JPanel {
         add(nombresUpper);
         add(nombresLower);
     }
-
-    public void mostrarGanador() {
-        if (queBracket && PanelPrincipal.torneo != null && !Torneo.ganadores.isEmpty()) {
-            Participante p = Torneo.ganadores.removeFirst();
-            Texto ganador = new Texto(p.getNombre(), 0, 0, 0, 0);
-            ganador.setBound(posicionesGanadores[cont1][0], posicionesGanadores[cont1][1], 250, 50);
-            nombresUpper.add(ganador);
-            Ventana.actualizar();
-            cont1++;
-        }
-        if (PanelPrincipal.torneo.getLowerBracket() != null && !PanelPrincipal.torneo.getLowerBracket().isEmpty()) {
-            Participante p = Torneo.perdedores.removeFirst();
-            Texto ganador = new Texto(p.getNombre(), 0, 0, 0, 0);
-            ganador.setBound(posicionesGanadores[cont2 + 17][0], posicionesGanadores[cont2 + 17][1], 250, 50);
-            nombresLower.add(ganador);
-            Ventana.actualizar();
-            cont2++;
-        }
-    }
-
 
     public void generarEncuentrosUpper() {
         PanelPrincipal.matches = encuentrosDoble.generarEncuentros(Torneo.participante);
@@ -239,7 +324,6 @@ public class PanelTorneoDoble extends JPanel {
                     System.out.println("Error al cargar la imagen");
                 }
                 Ventana.actualizar();
-
             }
         }
     }

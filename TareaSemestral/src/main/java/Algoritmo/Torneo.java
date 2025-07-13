@@ -14,7 +14,7 @@ public class Torneo {
     public static boolean draw= false;
     public static ArrayList<Participante> participante;
     public static ArrayList<Participante> ganadores;
-    public static ArrayList<Participante> perdedores;
+    public static boolean hayEnfrentamientoEnLower = false;
     private int cont=0;
     private String nombre;
     private String disciplina;
@@ -29,7 +29,6 @@ public class Torneo {
         this.formato=formato;
         participante = new ArrayList<>();
         ganadores=new ArrayList<>();
-        perdedores = new ArrayList<>();
         this.fechaInicial=fechaInicial;
         this.fechaTermino=fechaTermino;
 
@@ -47,19 +46,8 @@ public class Torneo {
         return nombre;
     }
 
-    public String getDisciplina() {
-        return disciplina;
-    }
-
     public String getFormato() {
         return formato.print();
-    }
-    public Date getFechaInicial() {
-        return fechaInicial;
-    }
-
-    public Date getFechaTermino() {
-        return fechaTermino;
     }
 
     public ArrayList<Participante> getParticipantes() {
@@ -77,6 +65,7 @@ public class Torneo {
         ArrayList<Encuentro> temp = new ArrayList<>();
         int cantidadParticipantes = lowerBracket.size();
         if(cont == 0) {
+            hayEnfrentamientoEnLower = true;
             cont++;
             if (cantidadParticipantes > 1) {
                 for (int i = 0; i <= cantidadParticipantes - 2; i += 2) {

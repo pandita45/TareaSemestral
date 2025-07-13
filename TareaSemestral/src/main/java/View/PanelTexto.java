@@ -3,6 +3,7 @@ import Algoritmo.EliminacionDoble;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class PanelTexto extends JPanel {
     public static Boolean LOU;

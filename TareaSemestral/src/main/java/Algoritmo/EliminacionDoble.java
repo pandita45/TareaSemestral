@@ -10,21 +10,19 @@ public class EliminacionDoble implements FormatoDeTorneo {
     }
 
     public void jugarPartida(Encuentro partida) {
-        if (Torneo.selectWinner) {
+        if (Torneo.selectWinner) { // gana el segundo cuando selectwinner es true
             if (lowerBracket.contains(partida.getJugadorUno())) {
                 eliminar(partida.getJugadorUno());
             } else {
                 lowerBracket.add(partida.getJugadorUno());
-                Torneo.perdedores.add(partida.getJugadorUno());
                 Torneo.ganadores.add(partida.getJugadorDos());
                 Torneo.participante.remove(partida.getJugadorUno());
             }
-        } else {
+        } else { // gana el primero cuando el selectwinner es false
             if (lowerBracket.contains(partida.getJugadorDos())) {
                 eliminar(partida.getJugadorDos());
             } else {
                 lowerBracket.add(partida.getJugadorDos());
-                Torneo.perdedores.add(partida.getJugadorDos());
                 Torneo.ganadores.add(partida.getJugadorUno());
                 Torneo.participante.remove(partida.getJugadorDos());
             }

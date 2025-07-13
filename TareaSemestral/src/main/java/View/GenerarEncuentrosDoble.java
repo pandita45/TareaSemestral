@@ -2,6 +2,7 @@ package View;
 
 import Algoritmo.Encuentro;
 import Algoritmo.Participante;
+import Algoritmo.Torneo;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,6 +15,7 @@ public class GenerarEncuentrosDoble{
         ArrayList<Encuentro> temp = new ArrayList<>();
         int cantidadParticipantes = participantes.size();
         if (cantidadParticipantes > 1) {
+            Torneo.hayEnfrentamientoEnLower = false;
             for (int i = 0; i <= cantidadParticipantes - 2; i += 2) {
                 temp.add(new Encuentro(participantes.get(i), participantes.get(i + 1), new Date()));
             }

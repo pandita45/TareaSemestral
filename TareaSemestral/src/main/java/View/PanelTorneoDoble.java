@@ -15,7 +15,7 @@ public class PanelTorneoDoble extends JPanel {
     private int cont = 0;
     public static Boton botonBracket;
     public static Boolean queBracket = true;
-    private Boolean estoyEnUpper = true;
+    public static Boolean estoyEnUpper = false;
     public Boton boton1;
     public Boton boton2;
     private PanelTexto nombresUpper;
@@ -110,7 +110,6 @@ public class PanelTorneoDoble extends JPanel {
                         setTextButtom(PanelPrincipal.matches.get(1).getJugadorUno().getNombre(), PanelPrincipal.matches.get(1).getJugadorDos().getNombre());
                     }
                     jugarEncuentro(PanelPrincipal.matches);
-
                 }
             }
             for (Participante p : PanelPrincipal.torneo.getParticipantes()) {
@@ -151,7 +150,7 @@ public class PanelTorneoDoble extends JPanel {
     }
 
     public void mostrarGanador() {
-        if (!LOU && PanelPrincipal.torneo != null && !Torneo.ganadores.isEmpty()) {
+        if (queBracket && PanelPrincipal.torneo != null && !Torneo.ganadores.isEmpty()) {
             Participante p = Torneo.ganadores.removeFirst();
             Texto ganador = new Texto(p.getNombre(), 0, 0, 0, 0);
             ganador.setBound(posicionesGanadores[cont1][0], posicionesGanadores[cont1][1], 250, 50);
@@ -159,7 +158,7 @@ public class PanelTorneoDoble extends JPanel {
             Ventana.actualizar();
             cont1++;
         }
-        if (EliminacionDoble.lowerBracket != null && !EliminacionDoble.lowerBracket.isEmpty()) {
+        if (PanelPrincipal.torneo.getLowerBracket() != null && !PanelPrincipal.torneo.getLowerBracket().isEmpty()) {
             Participante p = Torneo.perdedores.removeFirst();
             Texto ganador = new Texto(p.getNombre(), 0, 0, 0, 0);
             ganador.setBound(posicionesGanadores[cont2 + 17][0], posicionesGanadores[cont2 + 17][1], 250, 50);
@@ -191,12 +190,12 @@ public class PanelTorneoDoble extends JPanel {
                 );
             } else {
                 ArrayList<Encuentro> nuevos = null;
-                if (!estoyEnUpper) {
+                if (estoyEnUpper) {
                     nuevos = encuentrosDoble.generarEncuentros(Torneo.participante);
-                    estoyEnUpper = true;
-                } else {
-                    nuevos = encuentrosDoble.generarEncuentros(PanelPrincipal.torneo.getLowerBracket());
                     estoyEnUpper = false;
+                } else {
+                    nuevos = PanelPrincipal.torneo.generarEncuentrosLower();
+                    estoyEnUpper = true;
                 }
                 if (nuevos != null && !nuevos.isEmpty()) {
                     PanelPrincipal.matches = nuevos;
@@ -208,10 +207,6 @@ public class PanelTorneoDoble extends JPanel {
             }
         }
     }
-
-
-
-
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         if(cont == 0){

@@ -1,6 +1,8 @@
 package Algoritmo;
 import View.PanelPrincipal;
+import View.Ventana;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,6 +15,7 @@ public class Torneo {
     public static ArrayList<Participante> participante;
     public static ArrayList<Participante> ganadores;
     public static ArrayList<Participante> perdedores;
+    private int cont=0;
     private String nombre;
     private String disciplina;
     private FormatoDeTorneo formato;
@@ -68,5 +71,34 @@ public class Torneo {
 
     public ArrayList<Participante> getGanadores() {
         return ganadores;
+    }
+
+    public ArrayList<Encuentro> generarEncuentrosLower(){
+        ArrayList<Encuentro> temp = new ArrayList<>();
+        int cantidadParticipantes = lowerBracket.size();
+        if(cont == 0) {
+            cont++;
+            if (cantidadParticipantes > 1) {
+                for (int i = 0; i <= cantidadParticipantes - 2; i += 2) {
+                    temp.add(new Encuentro(lowerBracket.get(i), lowerBracket.get(i + 1), new Date()));
+                }
+                return temp;
+            } else {
+                JOptionPane.showMessageDialog(Ventana.getInstancia(), "El ganador es " + PanelPrincipal.torneo.getParticipantes().getFirst().getNombre());
+                return null;
+            }
+        }
+        else{
+            cont--;
+            if (cantidadParticipantes > 1) {
+                for (int i = 0; i <= cantidadParticipantes - 3; i += 1) {
+                    temp.add(new Encuentro(lowerBracket.get(i), lowerBracket.get(i + 2), new Date()));
+                }
+                return temp;
+            } else {
+                JOptionPane.showMessageDialog(Ventana.getInstancia(), "El ganador es " + PanelPrincipal.torneo.getParticipantes().getFirst().getNombre());
+                return null;
+            }
+        }
     }
 }

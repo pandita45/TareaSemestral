@@ -23,5 +23,4 @@ public class GenerarEncuentrosDoble{
             return null;
         }
     }
-
 }

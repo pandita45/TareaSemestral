@@ -2,28 +2,27 @@ package Algoritmo;
 
 import java.util.ArrayList;
 
-public class EliminacionDoble implements FormatoDeTorneo{
+public class EliminacionDoble implements FormatoDeTorneo {
     public static ArrayList<Participante> lowerBracket;
-    public EliminacionDoble(){
+
+    public EliminacionDoble() {
         lowerBracket = new ArrayList<>();
     }
+
     public void jugarPartida(Encuentro partida) {
-        if(Torneo.selectWinner){
-            if(lowerBracket.contains(partida.getJugadorUno())){
+        if (Torneo.selectWinner) {
+            if (lowerBracket.contains(partida.getJugadorUno())) {
                 eliminar(partida.getJugadorUno());
-            }
-            else{
+            } else {
                 lowerBracket.add(partida.getJugadorUno());
                 Torneo.perdedores.add(partida.getJugadorUno());
                 Torneo.ganadores.add(partida.getJugadorDos());
                 Torneo.participante.remove(partida.getJugadorUno());
             }
-        }
-        else{
-            if(lowerBracket.contains(partida.getJugadorDos())){
+        } else {
+            if (lowerBracket.contains(partida.getJugadorDos())) {
                 eliminar(partida.getJugadorDos());
-            }
-            else{
+            } else {
                 lowerBracket.add(partida.getJugadorDos());
                 Torneo.perdedores.add(partida.getJugadorDos());
                 Torneo.ganadores.add(partida.getJugadorUno());
@@ -31,7 +30,6 @@ public class EliminacionDoble implements FormatoDeTorneo{
             }
         }
     }
-
     public void eliminar(Participante a){
         lowerBracket.remove(a);
     }

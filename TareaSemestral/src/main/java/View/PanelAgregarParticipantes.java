@@ -53,6 +53,7 @@ public class PanelAgregarParticipantes extends JPanel {
                 case "EliminacionDoble":
                     PanelPrincipal.Champions.setVisible(true);
                     PanelPrincipal.Champions.generarEncuentrosUpper();
+                    PanelPrincipal.Champions.setTextButtom(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
                     break;
                 case "LigaSimple":
                     PanelPrincipal.liga.setVisible(true);

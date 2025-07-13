@@ -110,8 +110,8 @@ public class PanelTorneoDirecto extends JPanel {
         buttomMatches.setTextButtom(nombre1,nombre2);
     }
     public void mostrarGanador() {
-        if (!PanelPrincipal.torneo.ganadores.isEmpty()) {
-            Texto ganador = new Texto(PanelPrincipal.torneo.ganadores.removeFirst().getNombre(),0,0,0,0);
+        if (!Torneo.ganadores.isEmpty()) {
+            Texto ganador = new Texto(Torneo.ganadores.removeFirst().getNombre(),0,0,0,0);
             switch (CantidadParticipantes){
                 case 16 -> ganador.setBound(posicionesGanadores[10+cont_1][0],posicionesGanadores[10+cont_1][1],250,45);
                 case 8 -> ganador.setBound(posicionesGanadores[3+cont_1][0],posicionesGanadores[3+cont_1][1],300,60);

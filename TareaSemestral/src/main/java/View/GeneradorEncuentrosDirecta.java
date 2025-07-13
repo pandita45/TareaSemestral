@@ -24,7 +24,7 @@ public class GeneradorEncuentrosDirecta extends JPanel {
         boton1 = new Boton("j", x,y,ancho,alto);
         boton2 = new Boton("N", x + 300,y,ancho,alto);
         boton1.addActionListener(e -> {
-            PanelPrincipal.torneo.selectWinner = false;
+            Torneo.selectWinner = false;
             if(!PanelPrincipal.matches.isEmpty()) {
                 if (PanelPrincipal.matches.size() == 1) {
                     setTextButtom(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
@@ -37,10 +37,9 @@ public class GeneradorEncuentrosDirecta extends JPanel {
             }
             jugarEncuentro();
             PanelPrincipal.MSI.mostrarGanador();
-            PanelPrincipal.Champions.mostrarGanador();
         });
         boton2.addActionListener(e -> {
-            PanelPrincipal.torneo.selectWinner = true;
+            Torneo.selectWinner = true;
             if(!PanelPrincipal.matches.isEmpty()) {
                 System.out.println(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
                 if (PanelPrincipal.matches.size() == 1) {
@@ -53,8 +52,8 @@ public class GeneradorEncuentrosDirecta extends JPanel {
             }
             jugarEncuentro();
             PanelPrincipal.MSI.mostrarGanador();
-            PanelPrincipal.Champions.mostrarGanador();
         });
+
         add(boton1);
         add(boton2);
     }

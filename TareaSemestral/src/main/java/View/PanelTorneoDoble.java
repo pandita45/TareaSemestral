@@ -1,9 +1,6 @@
 package View;
 
-import Algoritmo.Deportista;
-import Algoritmo.EliminacionDoble;
-import Algoritmo.Encuentro;
-import Algoritmo.Torneo;
+import Algoritmo.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,28 +15,32 @@ public class PanelTorneoDoble extends JPanel {
     private int cont = 0;
     public static Boton botonBracket;
     public static Boolean queBracket = true;
+    public Boton boton1;
+    public Boton boton2;
     private PanelTexto nombresUpper;
     private PanelTexto nombresLower;
-    private GeneradorEncuentrosDirecta EncuentrosUpper;
-    private GeneradorEncuentrosDirecta EncuentrosLower;
+    private GenerarEncuentrosDoble encuentrosDoble;
     private int[][] posicionesGanadores;
-    private int cont1;
-    private int cont2;
+    private ArrayList<Encuentro> lowerBracket;
+    private int cont1 = 8;
+    private int cont2 = 1;
+    private Participante ganadorUpper;
     public PanelTorneoDoble(){
         super();
+        encuentrosDoble = new GenerarEncuentrosDoble();
         setVisible(false);
         setLayout(null);
         setSize(Escalar.X(1920), Escalar.Y(1080));
         setOpaque(false);
         posicionesGanadores = new int[][]{
                 {75,115},
-                {75,145},
                 {75,243},
-                {75,373},
-                {75,471},
-                {75,601},
-                {75,699},
-                {75,829},
+                {75,345},
+                {75,473},
+                {75,570},
+                {75,700},
+                {75,797},
+                {75,927},
                 {267,180},
                 {267,410},
                 {267,640},
@@ -79,19 +80,122 @@ public class PanelTorneoDoble extends JPanel {
             }
         });
 
-        EncuentrosUpper = new GeneradorEncuentrosDirecta(1100,700,200,100);
-        EncuentrosLower = new GeneradorEncuentrosDirecta(1100,700,200,100);
+        boton1 = new Boton("j",1100,700,200,100);
+        boton2 = new Boton("j",1400,700,200,100);
 
-        nombresLower.add(EncuentrosLower);
-        nombresUpper.add(EncuentrosUpper);
+
+        boton1.addActionListener(e ->{
+                if(queBracket){
+                    Torneo.selectWinner = false;
+                    if(!PanelPrincipal.matches.isEmpty()) {
+                        if (PanelPrincipal.matches.size() == 1) {
+                            setTextButtom(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                            boton1.setText("Continuar");
+                            boton2.setText("Continuar");
+                            System.out.println(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre() + " "+ PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                        }
+                        else {
+                            setTextButtom(PanelPrincipal.matches.get(1).getJugadorUno().getNombre(), PanelPrincipal.matches.get(1).getJugadorDos().getNombre());
+                        }
+                    }
+                    jugarEncuentro(PanelPrincipal.matches);
+                    PanelPrincipal.Champions.mostrarGanador();
+                }
+                else {
+
+
+                }
+            });
+        boton2.addActionListener( e -> {
+                if(queBracket){
+
+                }
+                else {
+
+
+                }
+            });
+
+
+
+
+        add(boton2);
+        add(boton1);
         add(botonBracket);
         add(nombresUpper);
         add(nombresLower);
     }
+
+    public void mostrarGanador() {
+        if (!LOU && PanelPrincipal.torneo != null) {
+            Participante p = Torneo.ganadores.removeFirst();
+            Texto ganador = new Texto(p.getNombre(), 0, 0, 0, 0);
+            ganador.setBound(posicionesGanadores[cont1][0], posicionesGanadores[cont1][1], 250, 50);
+            nombresUpper.add(ganador);
+            Ventana.actualizar();
+            cont1++;
+        }
+        if (EliminacionDoble.lowerBracket != null && !EliminacionDoble.lowerBracket.isEmpty()) {
+            Participante p = EliminacionDoble.lowerBracket.removeFirst();
+            Texto ganador = new Texto(p.getNombre(), 0, 0, 0, 0);
+            ganador.setBound(posicionesGanadores[cont2 + 17][0], posicionesGanadores[cont2 + 17][1], 250, 50);
+            nombresLower.add(ganador);
+            Ventana.actualizar();
+            cont2++;
+        }
+    }
+
+
+    public void generarEncuentrosUpper(){
+        PanelPrincipal.matches = encuentrosDoble.generarEncuentros(Torneo.participante);
+    }
+
+
+    public void generarEncuentrosLower(){
+        lowerBracket = encuentrosDoble.generarEncuentrosLower(lowerBracket, EliminacionDoble.lowerBracket);
+    }
+
+
+    public void setTextButtom(String nombre1,String nombre2){
+        boton1.setText(nombre1);
+        boton2.setText(nombre2);
+    }
+
+
+    public void jugarEncuentro(ArrayList<Encuentro> encuentros) {
+        if (!encuentros.isEmpty()) {
+            PanelPrincipal.torneo.jugar(encuentros.removeFirst());
+
+            if (!encuentros.isEmpty()) {
+                setTextButtom(
+                        encuentros.getFirst().getJugadorUno().getNombre(),
+                        encuentros.getFirst().getJugadorDos().getNombre()
+                );
+            }
+            else {
+                ArrayList<Encuentro> nuevos = encuentrosDoble.generarEncuentros(Torneo.participante);
+                if (nuevos != null && !nuevos.isEmpty()) {
+                    PanelPrincipal.matches = nuevos;
+                    setTextButtom(
+                            nuevos.getFirst().getJugadorUno().getNombre(),
+                            nuevos.getFirst().getJugadorDos().getNombre()
+                    );
+                }
+            }
+        }
+    }
+
+
+
+
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        if(cont == 0){
+            nombresUpper.escribir();
+            LOU = false;
+            cont++;
+        }
         if (PanelPrincipal.torneo != null) {
-            escribir();
             if (queBracket) {
                 nombresLower.setVisible(false);
                 nombresUpper.setVisible(true);
@@ -119,33 +223,5 @@ public class PanelTorneoDoble extends JPanel {
 
             }
         }
-    }
-    public void escribir(){
-        if(cont == 0){
-            nombresUpper.escribir();
-        }
-        cont++;
-    }
-    public void mostrarGanador() {
-        if (LOU && PanelPrincipal.torneo != null) {
-            Texto ganador = new Texto(PanelPrincipal.torneo.getParticipantes().removeFirst().getNombre(), 0, 0, 0, 0);
-            ganador.setBound(posicionesGanadores[cont1][0], posicionesGanadores[cont1][1], 250, 50);
-            add(ganador);
-            Ventana.actualizar();
-            cont1++;
-        }
-        else if(EliminacionDoble.lowerBracket != null){
-            Texto ganador = new Texto(PanelPrincipal.torneo.getParticipantes().removeFirst().getNombre(), 0, 0, 0, 0);
-            ganador.setBound(posicionesGanadores[cont2+17][0], posicionesGanadores[cont2+17][1], 250, 50);
-            add(ganador);
-            Ventana.actualizar();
-            cont2++;
-        }
-    }
-    public void generarEncuentrosUpper(){
-        PanelPrincipal.matches = EncuentrosUpper.generarEncuentros(Torneo.participante);
-    }
-    public ArrayList<Encuentro> generarEncuentrosLower(){
-        return EncuentrosLower.generarEncuentros(EliminacionDoble.lowerBracket);
     }
 }

@@ -1,8 +1,6 @@
 package Algoritmo;
 
 public class Deportista extends Participante{
-    private int edad;
-
     /**
      * Se crea el deportista, ya sea individual o perteneciente a algun equipo
      * @param nombre Nombre del Deportista

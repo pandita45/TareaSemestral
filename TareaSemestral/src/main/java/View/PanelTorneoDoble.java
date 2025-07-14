@@ -27,8 +27,7 @@ public class PanelTorneoDoble extends JPanel {
     private int sneakyCont2 = 8;
     private int sneakyCont3 = 18;
     private int contRonda = 0;
-    //private int cont1 = 8;
-    //private int cont2 = 1;
+
     private Participante ganadorUpper;
 
     public PanelTorneoDoble() {

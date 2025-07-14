@@ -6,6 +6,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class Organizacion {
+    /**
+     * La clase Organizacion lee un txt donde esta guardada la inforamcion de los equipos
+     * Dependiendo si son equipos o jugadores, obtiene sus datos e informacion clave
+     * Crea instancias de Equipo y/o participante con la informacion y los agrega al torneo
+     * @param torneo  Se le proporciona un torneo para que guarda la informacion
+     * @param EOD Es un booleano que revisa si se selecciono un torneo de tipo Equipo o Deportista
+     * @param archivo Se le proporciona un archivo del cual leer la informacion
+     */
     public Organizacion(Torneo torneo, boolean EOD,String archivo){
         InputStream is = Organizacion.class.getClassLoader().getResourceAsStream(archivo);
 
@@ -13,7 +21,6 @@ public class Organizacion {
             System.out.println("Archivo no encontrado.");
             return;
         }
-
         try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
             String linea;
             String contenido;

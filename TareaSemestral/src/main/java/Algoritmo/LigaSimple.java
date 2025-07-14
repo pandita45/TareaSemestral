@@ -1,7 +1,11 @@
 package Algoritmo;
 
-
 public class LigaSimple implements FormatoDeTorneo{
+    /**
+     * Este metodo recibe una partida y la juega, al estar en liga, debe sumar puntos y estadisticas segun corresponda
+     * 3 puntos para los vencedores, 1 por empate y 0 por derrota, asi como sumar un victoria, derrota o empate
+     * @param partida Encuentro a jugar
+     */
     public void jugarPartida(Encuentro partida) {
         if(Torneo.draw){
             partida.getJugadorUno().agregarPuntos(1);

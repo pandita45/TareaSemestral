@@ -9,6 +9,12 @@ public class EliminacionDoble implements FormatoDeTorneo {
         lowerBracket = new ArrayList<>();
     }
 
+    /**
+     * Se juega la partida de eliminacion doble, donde si el perdedor, se cuentra en el lowerBracket es eliminado del torneo
+     * En caso de que el perdedor no este en lowerBracket, es agregado a el
+     * El ganador sigue en participantes, considerado como el upperBracket
+     * @param partida Encuentro entregado como parametro
+     */
     public void jugarPartida(Encuentro partida) {
         if (Torneo.selectWinner) { // gana el segundo cuando selectwinner es true
             if (lowerBracket.contains(partida.getJugadorUno())) {
@@ -28,10 +34,14 @@ public class EliminacionDoble implements FormatoDeTorneo {
             }
         }
     }
+
+    /**
+     * Elimina un participante del lowerBracket, eliminacion completa
+     * @param a Participante a eliminar
+     */
     public void eliminar(Participante a){
         lowerBracket.remove(a);
     }
-
 
     public String print(){
         return "EliminacionDoble";

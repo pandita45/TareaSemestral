@@ -6,6 +6,12 @@ public class EliminacionDirecta implements FormatoDeTorneo{
 
     public EliminacionDirecta() {
     }
+
+    /**
+     * Se juega la partida de eliminacion directa, en la que el perdedor es retirado del array de participantes
+     * Mientras que el ganador se guarda en ganadores para su posterior visualizacion
+     * @param partida Encuentro entregado como parametro
+     */
     @Override
     public void jugarPartida(Encuentro partida) {
         if(Torneo.selectWinner){
@@ -18,6 +24,11 @@ public class EliminacionDirecta implements FormatoDeTorneo{
             Torneo.ganadores.add(partida.getJugadorUno());
         }
     }
+
+    /**
+     * Se elimina del torneo al Participante seleccionado
+     * @param a Participante a eliminar
+     */
     public void eliminar(Participante a){
             Torneo.participante.remove(a);
     }

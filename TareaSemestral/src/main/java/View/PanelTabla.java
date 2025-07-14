@@ -10,11 +10,17 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Panel encargado de mostrar la tabla de Liga Simple
+ */
 public class PanelTabla extends JPanel {
 
     private JTable tabla;
     private DefaultTableModel modelo;
 
+    /**
+     * Constructor en donde se definen todas los parametros necesarios para crear la tabla y añadirla al panel
+     */
     public PanelTabla() {
         setLayout(new BorderLayout());
         setOpaque(false);
@@ -54,6 +60,10 @@ public class PanelTabla extends JPanel {
         cargarDesdeTorneo();
         add(scrollPane, BorderLayout.CENTER);
     }
+
+    /**
+     * Metodo para cargar los datos de los participantes hacia la tabla
+     */
     public void cargarDesdeTorneo() {
         tabla.removeAll();
         List<Object[]> datos = new ArrayList<>();
@@ -72,15 +82,23 @@ public class PanelTabla extends JPanel {
             }
             actualizarTabla(datos);
         }
-
-
     }
+
+    /**
+     * Actualiza todas las filas
+     * @param nuevasFilas lista de objetos de donde se sacara la informacion actualizada
+     */
     public void actualizarTabla(List<Object[]> nuevasFilas) {
         modelo.setRowCount(0);
         for (Object[] fila : nuevasFilas) {
             modelo.addRow(fila);
         }
     }
+
+    /**
+     * Metodo getter del ganador (el que termine primero en la tabla)
+     * @return devuelve el ganador de la liga
+     */
     public String getGanador(){
         return (String) modelo.getValueAt(0, 1);
     }

@@ -6,6 +6,9 @@ import Algoritmo.Torneo;
 import javax.swing.*;
 import java.util.ArrayList;
 
+/**
+ * Panel al que se le agregan todos los otros paneles
+ */
 public class PanelPrincipal extends JPanel {
     public static ArrayList<Encuentro> matches;
     public static Torneo torneo;
@@ -14,6 +17,10 @@ public class PanelPrincipal extends JPanel {
     public static PanelAgregarParticipantes agregarParticipantes;
     public static PanelTorneoDoble Champions;
     public static PanelLigaSimple liga;
+
+    /**
+     * Se le dan los parametros y se le agregan todos los otros paneles necesarios
+     */
     public PanelPrincipal(){
         super();
         setLayout(null);

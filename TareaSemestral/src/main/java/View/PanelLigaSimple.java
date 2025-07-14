@@ -11,6 +11,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * Clase donde se encuentra tabla y botones necesarios para el desarrollo de la liga
+ */
 public class PanelLigaSimple extends JPanel {
     private PanelTabla tablaPosiciones;
     private int cont = 0;
@@ -18,7 +21,10 @@ public class PanelLigaSimple extends JPanel {
     private Boton boton1;
     private Boton boton2;
     private Boton boton3;
-    
+
+    /**
+     * Constructor en donde se le agregan los botones y tabla necesarias
+     */
     public PanelLigaSimple() {
         super();
         setSize(Escalar.X(1920), Escalar.Y(1080));
@@ -82,8 +88,15 @@ public class PanelLigaSimple extends JPanel {
         add(boton3);
     }
 
+    /**
+     * Metodo para actualizar en panel
+     * @param g the <code>Graphics</code> object to protect
+     */
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        /**
+         * El contador se usa para que no cargue la tabla y el titulo en cada iteracion
+         */
         if (PanelPrincipal.torneo != null) {
             if(cont == 0){
                 tablaPosiciones.cargarDesdeTorneo();
@@ -104,10 +117,18 @@ public class PanelLigaSimple extends JPanel {
         Ventana.actualizar();
     }
 
+    /**
+     * Metodo para generar encuentros usando metodo de generar encuentro liga
+     */
     public void generarEncuentro(){
         PanelPrincipal.matches = buttomMatches.generarEncuentroLiga();
     }
 
+    /**
+     * Metodo setter del texto de los botones
+     * @param nombre1 texto boton 1
+     * @param nombre2 texto boton 2
+     */
     public void setText(String nombre1,String nombre2){
         boton1.setText(nombre1);
         boton2.setText(nombre2);

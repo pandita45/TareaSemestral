@@ -4,10 +4,15 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
+/**
+ * Primer panel que es visible al ejecutar el programa
+ */
 public class PanelBienvenida extends JPanel {
     private Texto textoBienvenida;
 
-
+    /**
+     * Constructor en donde se le agregan todos los botones, Text Fields, calendarios y textos necesarios
+     */
     public PanelBienvenida(){
         super();
         setLayout(null);

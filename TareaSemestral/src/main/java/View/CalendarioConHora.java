@@ -6,13 +6,23 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import com.toedter.calendar.JCalendar;
 
+/**
+ * Clase generadora de Calendarios para las fechas de inicio y fin del torneo
+ */
 public class CalendarioConHora extends JPanel {
     private JCalendar calendario;
     private JSpinner horaSpinner;
     private JButton boton;
     private Date fecha;
     private Date hora;
-    public CalendarioConHora(JButton buttom,int PosX, int PosY) {
+
+    /**
+     * Crea el calendario y lo asocia a un boton ya existente
+     * @param button a que boton estara asociado el calendario
+     * @param PosX que posicion en x tendra
+     * @param PosY que posicion en y tendra
+     */
+    public CalendarioConHora(JButton button,int PosX, int PosY) {
         setSize(Escalar.X(400), Escalar.Y(350));
         setBounds(Escalar.X(PosX),Escalar.Y(PosY),Escalar.X(400),Escalar.Y(300));
         setLayout(new BorderLayout());
@@ -33,7 +43,7 @@ public class CalendarioConHora extends JPanel {
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm");
             fecha.setHours(hora.getHours());
             fecha.setMinutes(hora.getMinutes());
-            buttom.setText(formato.format(fecha));
+            button.setText(formato.format(fecha));
 
             setVisible(false);
         });
@@ -48,19 +58,11 @@ public class CalendarioConHora extends JPanel {
         setVisible(false);
     }
 
+    /**
+     * Getter de la fecha seleccionada en el calendario
+     * @return devuelve la fecha seleccionada
+     */
     public Date getDate() {
         return this.fecha;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setHora(Date hora) {
-        this.hora = hora;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 }

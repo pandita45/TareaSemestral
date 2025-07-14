@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
+/**
+ * Panel en donde se desarrolla el torneo Eliminacion Directa
+ */
 public class PanelTorneoDirecto extends JPanel {
     private String img;
     private int sumY;
@@ -14,6 +17,11 @@ public class PanelTorneoDirecto extends JPanel {
     private int[][] posicionesGanadores;
     private GeneradorEncuentrosDirecta buttomMatches;
     private int CantidadParticipantes;
+
+    /**
+     * Constructor donde se define el array con todas las posiciones de las cajas de los brackets y se añaden botones
+     * para los enfrentamientos
+     */
     public PanelTorneoDirecto(){
         super();
         setVisible(false);
@@ -23,14 +31,14 @@ public class PanelTorneoDirecto extends JPanel {
         posicionesGanadores = new int[][]{
                 {447,572},
                 {1037,572},
-                {735,850}, //pos ganador del torneo
+                {735,850},
                 {380,265},
                 {380,805},
                 {1240,265},
                 {1240,805},
                 {615,540},
                 {1005,540},
-                {810,730}, //pos ganador del torneo
+                {810,730},
                 {270,185},
                 {270,412},
                 {270,640},
@@ -45,11 +53,16 @@ public class PanelTorneoDirecto extends JPanel {
                 {1195,747},
                 {670,525},
                 {995,525},
-                {835,680} //pos ganador del torneo
+                {835,680}
         };
         buttomMatches = new GeneradorEncuentrosDirecta(700,900,200,100);
         add(buttomMatches);
     }
+
+    /**
+     * Metodo para actualizar el panel
+     * @param g the <code>Graphics</code> object to protect
+     */
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         if(PanelPrincipal.torneo != null && Objects.equals(PanelPrincipal.torneo.getFormato(), "EliminacionDirecta")) {
@@ -93,7 +106,6 @@ public class PanelTorneoDirecto extends JPanel {
                 this.cont++;
             }
         }
-
         try {
             ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource(img));
             Image image = imageIcon.getImage();
@@ -103,12 +115,26 @@ public class PanelTorneoDirecto extends JPanel {
             System.out.println("Error al cargar la imagen");
         }
     }
+
+    /**
+     * Metodo para generar encuentros usando el metodo generarEncuentros del panel Generador Encuentros Directa
+     */
     public void generarEncuentros(){
         PanelPrincipal.matches = buttomMatches.generarEncuentros(Torneo.participante);
     }
+
+    /**
+     * Metodo setter de los textos de los botones
+     * @param nombre1 texto boton 1
+     * @param nombre2 texto boton 2
+     */
     public void setText(String nombre1,String nombre2){
-        buttomMatches.setTextButtom(nombre1,nombre2);
+        buttomMatches.setTextButton(nombre1,nombre2);
     }
+
+    /**
+     * Metodo para mostrar el avance de los participantes en los brackets a medida que ganan y quedan eliminados
+     */
     public void mostrarGanador() {
         if (!Torneo.ganadores.isEmpty()) {
             Texto ganador = new Texto(Torneo.ganadores.removeFirst().getNombre(),0,0,0,0);

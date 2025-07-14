@@ -5,32 +5,49 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+/**
+ * Clase generadora de text fields (donde se introduce informacion por teclado)
+ */
 public class Fields {
-    private Font fuente;
     private int fuente_Size;
     private int posX;
     private int posY;
     private int ancho;
-    private int largo;
+    private int alto;
+    private Font fuente;
     private String texto;
     private JTextField campoText;
-    public Fields(int fuente_Size,int posX, int posY,int ancho,int largo, String texto) {
+
+    /**
+     * Constructor donde se inicializan las variables del Text Field
+     * @param fuente_Size de que tamaño sera la fuente del Text Field
+     * @param posX posicion en x
+     * @param posY posicion en y
+     * @param ancho ancho de la "caja"
+     * @param alto alto de la "caja"
+     * @param texto que texto de fondo tendra el Text Field
+     */
+    public Fields(int fuente_Size,int posX, int posY,int ancho,int alto, String texto) {
         this.posX=posX;
         this.posY=posY;
         this.ancho=ancho;
-        this.largo=largo;
+        this.alto =alto;
         this.fuente_Size=fuente_Size;
         this.fuente = new Font("SansSerif", Font.PLAIN, Escalar.X(fuente_Size));
         this.texto = texto;
     }
 
+    /**
+     * Metodo que crea el Text Field con los parametros definidos anteriormente
+     * @return devuelve el Text Field creado
+     */
     public JTextField crear() {
         Color colorTexto = Color.decode("#EAEAEA");
         Color colorBorde = Color.decode("#44475A");
 
         JTextField field = new JTextField(texto);
         field.setFont(fuente);
-        field.setBounds(posX, posY, ancho, largo);
+        field.setBounds(posX, posY, ancho, alto);
 
         field.setForeground(colorTexto);
         field.setCaretColor(colorTexto);
@@ -64,6 +81,11 @@ public class Fields {
         this.campoText = field;
         return field;
     }
+
+    /**
+     * Getter del texto ingresado
+     * @return texto ingresado por usuario
+     */
     public String getTexto(){
         return campoText.getText();
     }

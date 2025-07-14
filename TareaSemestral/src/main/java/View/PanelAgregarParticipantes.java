@@ -4,13 +4,19 @@ import Algoritmo.Organizacion;
 
 import javax.swing.*;
 
-
+/**
+ * Clase panel para seleccionar si el torneo sera individual o en equipos
+ */
 public class PanelAgregarParticipantes extends JPanel {
     private Texto titulo;
     private Boton individual;
     private Boton equipo;
     private Organizacion eleccion;
     private boolean opcion;
+
+    /**
+     * Constructor en donde se le agregan los botones funcionales y textos necesarios
+     */
     public PanelAgregarParticipantes() {
         super();
         setVisible(false);

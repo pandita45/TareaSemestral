@@ -7,7 +7,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 
+/**
+ * Clase generadora de los encuentros para liga simple
+ */
 public class GeneradorLigaSimple extends JPanel {
+    /**
+     * constructor donde se settea el tamaño y se dan caracteristicas al panel
+     */
     public GeneradorLigaSimple(){
         super();
         setLayout(null);
@@ -15,6 +21,11 @@ public class GeneradorLigaSimple extends JPanel {
         setSize(Escalar.X(1920),Escalar.Y(1080));
         setVisible(true);
     }
+
+    /**
+     * Metodo que genera los encuentros, de modalidad todos contra todos
+     * @return devuelve el array con todos los encuentros generados
+     */
     public ArrayList<Encuentro> generarEncuentroLiga(){
         ArrayList<Encuentro> temp = new ArrayList<>();
         int cantidadParticipantes = PanelPrincipal.torneo.getParticipantes().size();

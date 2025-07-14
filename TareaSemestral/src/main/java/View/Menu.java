@@ -3,12 +3,23 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Clase que sirve para crear un menu de opciones
+ */
 public class Menu extends JMenuItem {
     private static int var1;
     private int var2;
     private String formato;
     private String texto;
     private JButton boton;
+
+    /**
+     * Constructor donde se inicializan variables locales
+     * @param formato El formato asociado a la opcion del menu
+     * @param texto Que texto tendra la opcion del menu
+     * @param boton Encargado de darle la funcion a la opcion del menu
+     * @param var2 Que valor numerico esta asociado a la opcion del menu
+     */
     public Menu(String formato, String texto, JButton boton, int var2) {
         this.formato = formato;
         this.texto = texto;
@@ -16,6 +27,10 @@ public class Menu extends JMenuItem {
         this.var2 = var2;
     }
 
+    /**
+     * Metodo en donde se crea el menu
+     * @return devuelve el menu creado
+     */
     public JMenuItem crear(){
         JMenuItem menu = new JMenuItem(formato);
         menu.setBackground(Color.decode("#146D8B").darker());
@@ -33,6 +48,10 @@ public class Menu extends JMenuItem {
         return menu;
     }
 
+    /**
+     * Metodo getter de var1
+     * @return devuelve el entero relacionado a la opcion seleccionada
+     */
     public int getVar1() {
         return var1;
     }

@@ -10,7 +10,9 @@ import java.util.Date;
 
 import static View.PanelTexto.LOU;
 
-
+/**
+ * Clase no funcional por completo, logica esta correcta, deja de funcionar en la 2da ronda de lower bracket (leer readme para mas informacion)
+ */
 public class PanelTorneoDoble extends JPanel {
     private int cont = 0;
     public static Boton botonBracket;
@@ -30,6 +32,10 @@ public class PanelTorneoDoble extends JPanel {
 
     private Participante ganadorUpper;
 
+    /**
+     * Constructor en donde se define la matriz de posiciones de las cajas de los brackets, se muestran los primeros participantes en sus
+     * respectivas cajas y se crean los botones funcionales para los encuentros
+     */
     public PanelTorneoDoble() {
         super();
         textos = new ArrayList<>();
@@ -225,17 +231,27 @@ public class PanelTorneoDoble extends JPanel {
         add(nombresLower);
     }
 
+    /**
+     * Genera encuentros en el upper bracket con la misma logica que Eliminacion directa
+     */
     public void generarEncuentrosUpper() {
         PanelPrincipal.matches = encuentrosDoble.generarEncuentros(Torneo.participante);
     }
 
-
+    /**
+     * Metodo setter del texto de los botones
+     * @param nombre1 texto boton 1
+     * @param nombre2 texto boton 2
+     */
     public void setTextButtom(String nombre1, String nombre2) {
         boton1.setText(nombre1);
         boton2.setText(nombre2);
     }
 
-
+    /**
+     * Metodo para jugar encuentro
+     * @param encuentros array del cual se jugara el encuentro de indice 0
+     */
     public void jugarEncuentro(ArrayList<Encuentro> encuentros) {
         if (!encuentros.isEmpty()) {
             PanelPrincipal.torneo.jugar(encuentros.removeFirst());
@@ -263,8 +279,16 @@ public class PanelTorneoDoble extends JPanel {
             }
         }
     }
+
+    /**
+     * Metodo para actualizar el panel
+     * @param g the <code>Graphics</code> object to protect
+     */
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        /**
+         * Contador usado para que se ejecute solo 1 vez el metodo escribir()
+         */
         if(cont == 0){
             nombresUpper.escribir();
             LOU = false;

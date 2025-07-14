@@ -1,0 +1,339 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+interface FormatoDeTorneo {
+  + jugarPartida(Encuentro)
+  + print() : String
+}
+
+class Torneo {
+  - String nombre
+  - String disciplina
+  - FormatoDeTorneo formato
+  - Date fechaInicial
+  - Date fechaTermino
+  - static ArrayList<Participante> participante
+  - static ArrayList<Participante> ganadores
+  - static boolean selectWinner
+  - static boolean draw
+  - static boolean hayEnfrentamientoEnLower
+  - int cont
+  + jugar(Encuentro)
+  + agregarParticipantes(Participante)
+  + getFormato() : String
+  + getGanadores() : ArrayList<Participante>
+  + getLowerBracket() : ArrayList<Participante>
+  + generarEncuentrosLower() : ArrayList<Encuentro>
+}
+
+abstract class Participante {
+  - String nombre
+  - String contacto
+  - String edad
+  - int puntos
+  - int wins
+  - int losses
+  - int draws
+  + agregarPuntos(int)
+  + addWins(int)
+  + addLosses(int)
+  + addDraws(int)
+  + getPuntos() : int
+  + getNombre() : String
+  + getEdad() : String
+  + getWins() : int
+  + getLosses() : int
+  + getDraws() : int
+}
+
+class LigaSimple {
+  + jugarPartida(Encuentro)
+  + print() : String
+}
+
+class EliminacionDirecta {
+  + jugarPartida(Encuentro)
+  + print() : String
+  - eliminar(Participante)
+}
+
+class EliminacionDoble {
+  - static ArrayList<Participante> lowerBracket
+  + jugarPartida(Encuentro)
+  + print() : String
+  - eliminar(Participante)
+}
+
+class Encuentro {
+  - Participante jugadorUno
+  - Participante jugadorDos
+  - Date fechaHora
+  + getJugadorUno() : Participante
+  + getJugadorDos() : Participante
+}
+
+class Deportista {
+}
+
+class Equipo {
+  - ArrayList<Deportista> miembros
+  + agregarDeportista(Deportista)
+  + getMiembros() : ArrayList<Deportista>
+}
+
+class Organizacion {
+  + Organizacion(Torneo, boolean, String)
+}
+
+class Boton {
+  + Boton(String, int, int, int, int)
+  + setColor(String)
+}
+
+class CalendarioConHora {
+  + CalendarioConHora(JButton, int, int)
+  + getDate() : Date
+}
+
+class Escalar {
+  + X(int) : int
+  + Y(int) : int
+}
+
+class Fields {
+  - int fuente_Size
+  - int posX
+  - int posY
+  - int ancho
+  - int alto
+  - Font fuente
+  - String texto
+  - JTextField campoText
+  + Fields(int, int, int, int, int, String)
+  + crear() : JTextField
+  + getTexto() : String
+}
+
+class GeneradorEncuentrosDirecta {
+  - Boton boton1
+  - Boton boton2
+  - int ancho
+  - int alto
+  + GeneradorEncuentrosDirecta(int, int, int, int)
+  + generarEncuentros(ArrayList<Participante>) : ArrayList<Encuentro>
+  + setTextButton(String, String)
+  + setPosicion(int, int)
+  + jugarEncuentro()
+}
+
+class GeneradorLigaSimple {
+  + GeneradorLigaSimple()
+  + generarEncuentroLiga() : ArrayList<Encuentro>
+}
+
+class GenerarEncuentrosDoble {
+  + generarEncuentros(ArrayList<Participante>) : ArrayList<Encuentro>
+}
+
+class Menu {
+  - static int var1
+  - int var2
+  - String formato
+  - String texto
+  - JButton boton
+  + Menu(String, String, JButton, int)
+  + crear() : JMenuItem
+  + getVar1() : int
+}
+
+class PanelAgregarParticipantes {
+  - Texto titulo
+  - Boton individual
+  - Boton equipo
+  - Organizacion eleccion
+  - boolean opcion
+  + PanelAgregarParticipantes()
+}
+
+class PanelBienvenida {
+  - Texto textoBienvenida
+  + PanelBienvenida()
+}
+
+class PanelLigaSimple {
+  - PanelTabla tablaPosiciones
+  - int cont
+  - GeneradorLigaSimple buttomMatches
+  - Boton boton1
+  - Boton boton2
+  - Boton boton3
+  + PanelLigaSimple()
+  + generarEncuentro()
+  + setText(String, String)
+}
+
+class PanelTabla {
+  - JTable tabla
+  - DefaultTableModel modelo
+  + PanelTabla()
+  + cargarDesdeTorneo()
+  + actualizarTabla(List<Object[]>)
+  + getGanador() : String
+}
+
+class PanelPrincipal {
+  + static ArrayList<Encuentro> matches
+  + static Torneo torneo
+  + static PanelBienvenida bienvenida
+  + static PanelTorneoDirecto MSI
+  + static PanelAgregarParticipantes agregarParticipantes
+  + static PanelTorneoDoble Champions
+  + static PanelLigaSimple liga
+  + PanelPrincipal()
+}
+class PanelTexto {
+  + static Boolean LOU
+  - int[][] posiciones
+  + PanelTexto(boolean, int[][])
+  + escribir()
+}
+class PanelTorneoDirecto {
+  - String img
+  - int sumY
+  - int cont
+  - int cont_1
+  - int[][] posicionesGanadores
+  - GeneradorEncuentrosDirecta buttomMatches
+  - int CantidadParticipantes
+  + PanelTorneoDirecto()
+  + generarEncuentros()
+  + setText(String, String)
+  + mostrarGanador()
+  # paintComponent(Graphics)
+}
+class PanelTorneoDoble {
+  - int cont
+  + static Boton botonBracket
+  + static Boolean queBracket
+  + static Boolean estoyEnUpper
+  + ArrayList<Texto> textos
+  + Boton boton1
+  + Boton boton2
+  - PanelTexto nombresUpper
+  - PanelTexto nombresLower
+  - GenerarEncuentrosDoble encuentrosDoble
+  - int[][] posicionesGanadores
+  - ArrayList<Encuentro> lowerBracket
+  - int sneakyCont2
+  - int sneakyCont3
+  - int contRonda
+  - Participante ganadorUpper
+  + PanelTorneoDoble()
+  + generarEncuentrosUpper()
+  + setTextButtom(String, String)
+  + jugarEncuentro(ArrayList<Encuentro>)
+  # paintComponent(Graphics)
+}
+class Texto {
+  + static Font Font
+  + Texto(String, int, int, int, int)
+  + setBound(int, int, int, int)
+}
+class Ventana {
+  - PanelPrincipal principal
+  - static Ventana instancia
+  + static Ventana getInstancia()
+  + static void actualizar()
+  - Ventana()
+}
+
+Ventana --> PanelPrincipal
+Ventana --> Escalar
+
+
+Texto --> Font
+Texto --> Escalar
+
+PanelTorneoDoble --> PanelTexto
+PanelTorneoDoble --> Texto
+PanelTorneoDoble --> Boton
+PanelTorneoDoble --> GenerarEncuentrosDoble
+PanelTorneoDoble --> Torneo
+PanelTorneoDoble --> PanelPrincipal
+PanelTorneoDoble --> Encuentro
+PanelTorneoDoble --> Ventana
+PanelTorneoDoble --> Escalar
+
+
+PanelTorneoDirecto --> Texto
+PanelTorneoDirecto --> GeneradorEncuentrosDirecta
+PanelTorneoDirecto --> Torneo
+PanelTorneoDirecto --> PanelPrincipal
+PanelTorneoDirecto --> Ventana
+PanelTorneoDirecto --> Escalar
+
+PanelTexto --> Texto
+PanelTexto --> PanelPrincipal
+PanelTexto --> EliminacionDoble
+PanelTexto --> Ventana
+PanelTexto --> Escalar
+
+' Herencias
+Deportista --|> Participante
+Equipo --|> Participante
+LigaSimple ..|> FormatoDeTorneo
+EliminacionDirecta ..|> FormatoDeTorneo
+EliminacionDoble ..|> FormatoDeTorneo
+
+' Relaciones
+Torneo o-- FormatoDeTorneo
+Torneo o-- Encuentro
+Torneo o-- Participante
+Encuentro o-- Participante
+Equipo --> Deportista
+Organizacion --> Torneo
+Organizacion --> Equipo
+Organizacion --> Deportista
+GeneradorEncuentrosDirecta --> Boton
+GeneradorEncuentrosDirecta --> Torneo
+GeneradorEncuentrosDirecta --> Participante
+GeneradorEncuentrosDirecta --> Encuentro
+GeneradorEncuentrosDirecta --> Escalar
+GeneradorLigaSimple --> Encuentro
+GeneradorLigaSimple --> Torneo
+GeneradorLigaSimple --> Escalar
+GenerarEncuentrosDoble --> Participante
+GenerarEncuentrosDoble --> Encuentro
+GenerarEncuentrosDoble --> Torneo
+
+PanelAgregarParticipantes --> Boton
+PanelAgregarParticipantes --> Texto
+PanelAgregarParticipantes --> Organizacion
+PanelAgregarParticipantes --> PanelPrincipal
+PanelAgregarParticipantes --> Escalar
+
+PanelBienvenida --> Boton
+PanelBienvenida --> Texto
+PanelBienvenida --> Fields
+PanelBienvenida --> CalendarioConHora
+PanelBienvenida --> Menu
+PanelBienvenida --> Torneo
+PanelBienvenida --> Escalar
+
+PanelLigaSimple --> GeneradorLigaSimple
+PanelLigaSimple --> PanelTabla
+PanelLigaSimple --> Boton
+PanelLigaSimple --> Texto
+PanelLigaSimple --> Encuentro
+PanelLigaSimple --> Torneo
+PanelLigaSimple --> Escalar
+
+PanelPrincipal --> PanelBienvenida
+PanelPrincipal --> PanelTorneoDirecta
+PanelPrincipal --> PanelAgregarParticipantes
+PanelPrincipal --> PanelTorneoDoble
+PanelPrincipal --> PanelLigaSimple
+PanelPrincipal --> Torneo
+PanelPrincipal --> Encuentro
+PanelPrincipal --> Escalar
+@enduml

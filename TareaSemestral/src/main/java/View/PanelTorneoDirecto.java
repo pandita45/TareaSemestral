@@ -67,7 +67,11 @@ public class PanelTorneoDirecto extends JPanel {
         super.paintComponent(g);
         if(PanelPrincipal.torneo != null && Objects.equals(PanelPrincipal.torneo.getFormato(), "EliminacionDirecta")) {
             Texto titulo = new Texto(PanelPrincipal.torneo.getNombre(), 0, 25, 1920, 90);
+            titulo.setHorizontalAlignment(SwingConstants.CENTER);
             add(titulo);
+            Texto disciplina = new Texto(PanelPrincipal.torneo.getDisciplina(), 0, 350, 1920, 90);
+            disciplina.setHorizontalAlignment(SwingConstants.CENTER);
+            add(disciplina);
             int k = 0;
             if (cont == 0) {
                 CantidadParticipantes = PanelPrincipal.torneo.getParticipantes().size();

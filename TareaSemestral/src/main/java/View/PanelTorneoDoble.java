@@ -295,6 +295,12 @@ public class PanelTorneoDoble extends JPanel {
             cont++;
         }
         if (PanelPrincipal.torneo != null) {
+            Texto title = new Texto(PanelPrincipal.torneo.getNombre(), 0, 0, 1920, 90);
+            title.setHorizontalAlignment(SwingConstants.CENTER);
+            add(title);
+            Texto disciplina = new Texto(PanelPrincipal.torneo.getDisciplina(), 0, 900, 1920, 90);
+            disciplina.setHorizontalAlignment(SwingConstants.CENTER);
+            add(disciplina);
             if (queBracket) {
                 nombresLower.setVisible(false);
                 nombresUpper.setVisible(true);

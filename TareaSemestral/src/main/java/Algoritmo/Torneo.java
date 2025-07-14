@@ -60,6 +60,14 @@ public class Torneo {
     }
 
     /**
+     * Metodo getter de disciplina
+     * @return disciplina del torneo
+     */
+    public String getDisciplina() {
+        return disciplina;
+    }
+
+    /**
      * @return Devuelve el nombre del torneo creado, para posterior visualizacion
      */
 

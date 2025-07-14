@@ -247,16 +247,13 @@ class Ventana {
   - Ventana()
 }
 
-Ventana --|> JFrame
 Ventana --> PanelPrincipal
 Ventana --> Escalar
 
 
-Texto --|> JLabel
-Texto --> Escalar
 Texto --> Font
+Texto --> Escalar
 
-PanelTorneoDoble --|> JPanel
 PanelTorneoDoble --> PanelTexto
 PanelTorneoDoble --> Texto
 PanelTorneoDoble --> Boton
@@ -268,7 +265,6 @@ PanelTorneoDoble --> Ventana
 PanelTorneoDoble --> Escalar
 
 
-PanelTorneoDirecto --|> JPanel
 PanelTorneoDirecto --> Texto
 PanelTorneoDirecto --> GeneradorEncuentrosDirecta
 PanelTorneoDirecto --> Torneo
@@ -276,13 +272,11 @@ PanelTorneoDirecto --> PanelPrincipal
 PanelTorneoDirecto --> Ventana
 PanelTorneoDirecto --> Escalar
 
-
-PanelTexto --|> JPanel
 PanelTexto --> Texto
-PanelTexto --> Escalar
 PanelTexto --> PanelPrincipal
 PanelTexto --> EliminacionDoble
 PanelTexto --> Ventana
+PanelTexto --> Escalar
 
 ' Herencias
 Deportista --|> Participante
@@ -290,11 +284,6 @@ Equipo --|> Participante
 LigaSimple ..|> FormatoDeTorneo
 EliminacionDirecta ..|> FormatoDeTorneo
 EliminacionDoble ..|> FormatoDeTorneo
-Boton --|> JButton
-CalendarioConHora --|> JPanel
-GeneradorEncuentrosDirecta --|> JPanel
-GeneradorLigaSimple --|> JPanel
-Menu --|> JMenuItem
 
 ' Relaciones
 Torneo o-- FormatoDeTorneo
@@ -305,30 +294,23 @@ Equipo --> Deportista
 Organizacion --> Torneo
 Organizacion --> Equipo
 Organizacion --> Deportista
-CalendarioConHora --> Escalar
-CalendarioConHora --> JButton
-CalendarioConHora --> JCalendar
-CalendarioConHora --> JSpinner
-CalendarioConHora --> JLabel
-Fields --> JTextField
-Fields --> Font
-Fields --> Escalar
 GeneradorEncuentrosDirecta --> Boton
 GeneradorEncuentrosDirecta --> Torneo
 GeneradorEncuentrosDirecta --> Participante
 GeneradorEncuentrosDirecta --> Encuentro
+GeneradorEncuentrosDirecta --> Escalar
 GeneradorLigaSimple --> Encuentro
 GeneradorLigaSimple --> Torneo
+GeneradorLigaSimple --> Escalar
 GenerarEncuentrosDoble --> Participante
 GenerarEncuentrosDoble --> Encuentro
 GenerarEncuentrosDoble --> Torneo
-Menu --> JButton
-Menu --> Escalar
 
 PanelAgregarParticipantes --> Boton
 PanelAgregarParticipantes --> Texto
 PanelAgregarParticipantes --> Organizacion
 PanelAgregarParticipantes --> PanelPrincipal
+PanelAgregarParticipantes --> Escalar
 
 PanelBienvenida --> Boton
 PanelBienvenida --> Texto
@@ -336,6 +318,7 @@ PanelBienvenida --> Fields
 PanelBienvenida --> CalendarioConHora
 PanelBienvenida --> Menu
 PanelBienvenida --> Torneo
+PanelBienvenida --> Escalar
 
 PanelLigaSimple --> GeneradorLigaSimple
 PanelLigaSimple --> PanelTabla
@@ -343,12 +326,14 @@ PanelLigaSimple --> Boton
 PanelLigaSimple --> Texto
 PanelLigaSimple --> Encuentro
 PanelLigaSimple --> Torneo
+PanelLigaSimple --> Escalar
 
 PanelPrincipal --> PanelBienvenida
-PanelPrincipal --> PanelTorneoDirecto
+PanelPrincipal --> PanelTorneoDirecta
 PanelPrincipal --> PanelAgregarParticipantes
 PanelPrincipal --> PanelTorneoDoble
 PanelPrincipal --> PanelLigaSimple
 PanelPrincipal --> Torneo
 PanelPrincipal --> Encuentro
+PanelPrincipal --> Escalar
 @enduml

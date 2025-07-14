@@ -101,6 +101,8 @@ public class PanelLigaSimple extends JPanel {
             if(cont == 0){
                 tablaPosiciones.cargarDesdeTorneo();
                 Texto titulo = new Texto(PanelPrincipal.torneo.getNombre(), 0, 25, 1920, 90);
+                Texto disciplina = new Texto(PanelPrincipal.torneo.getDisciplina(), 0, 900, 1920, 90);
+                add(disciplina);
                 add(titulo);
                 cont++;
             }

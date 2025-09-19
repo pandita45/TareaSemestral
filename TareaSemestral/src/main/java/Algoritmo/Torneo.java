@@ -122,7 +122,7 @@ public class Torneo {
                 }
                 return temp;
             } else {
-                JOptionPane.showMessageDialog(Ventana.getInstancia(), "El ganador es " + PanelPrincipal.torneo.getParticipantes().getFirst().getNombre());
+                JOptionPane.showMessageDialog(Ventana.getInstancia(), "El ganador es " + PanelPrincipal.torneo.getParticipantes().get(0).getNombre());
                 return null;
             }
         }
@@ -134,7 +134,7 @@ public class Torneo {
                 }
                 return temp;
             } else {
-                JOptionPane.showMessageDialog(Ventana.getInstancia(), "El ganador es " + PanelPrincipal.torneo.getParticipantes().getFirst().getNombre());
+                JOptionPane.showMessageDialog(Ventana.getInstancia(), "El ganador es " + PanelPrincipal.torneo.getParticipantes().get(0).getNombre());
                 return null;
             }
         }

@@ -44,10 +44,10 @@ public class PanelLigaSimple extends JPanel {
         boton1.addActionListener(e->{
             if(!PanelPrincipal.matches.isEmpty()) {
                 Torneo.selectWinner = true;
-                PanelPrincipal.torneo.jugar(PanelPrincipal.matches.removeFirst());
+                PanelPrincipal.torneo.jugar(PanelPrincipal.matches.remove(0));
                 tablaPosiciones.cargarDesdeTorneo();
                 if(!PanelPrincipal.matches.isEmpty()){
-                setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                setText(PanelPrincipal.matches.get(0).getJugadorUno().getNombre(), PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
             }
             }
             else {
@@ -57,10 +57,10 @@ public class PanelLigaSimple extends JPanel {
         boton2.addActionListener(e -> {
             if(!PanelPrincipal.matches.isEmpty()) {
                 Torneo.selectWinner = false;
-                PanelPrincipal.torneo.jugar(PanelPrincipal.matches.removeFirst());
+                PanelPrincipal.torneo.jugar(PanelPrincipal.matches.remove(0));
                 tablaPosiciones.cargarDesdeTorneo();
                 if(!PanelPrincipal.matches.isEmpty()){
-                    setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                    setText(PanelPrincipal.matches.get(0).getJugadorUno().getNombre(), PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                 }
             }
             else {
@@ -70,11 +70,11 @@ public class PanelLigaSimple extends JPanel {
         boton3.addActionListener(e ->{
             if(!PanelPrincipal.matches.isEmpty()) {
                 Torneo.draw = true;
-                PanelPrincipal.torneo.jugar(PanelPrincipal.matches.removeFirst());
+                PanelPrincipal.torneo.jugar(PanelPrincipal.matches.remove(0));
                 tablaPosiciones.cargarDesdeTorneo();
                 Torneo.draw = false;
                 if(!PanelPrincipal.matches.isEmpty()){
-                    setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                    setText(PanelPrincipal.matches.get(0).getJugadorUno().getNombre(), PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                 }
             }
             else {

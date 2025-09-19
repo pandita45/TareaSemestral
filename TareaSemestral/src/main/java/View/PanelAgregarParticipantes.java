@@ -54,17 +54,17 @@ public class PanelAgregarParticipantes extends JPanel {
                 case "EliminacionDirecta":
                     PanelPrincipal.MSI.setVisible(true);
                     PanelPrincipal.MSI.generarEncuentros();
-                    PanelPrincipal.MSI.setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                    PanelPrincipal.MSI.setText(PanelPrincipal.matches.get(0).getJugadorUno().getNombre(), PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                     break;
                 case "EliminacionDoble":
                     PanelPrincipal.Champions.setVisible(true);
                     PanelPrincipal.Champions.generarEncuentrosUpper();
-                    PanelPrincipal.Champions.setTextButtom(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                    PanelPrincipal.Champions.setTextButtom(PanelPrincipal.matches.get(0).getJugadorUno().getNombre(), PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                     break;
                 case "LigaSimple":
                     PanelPrincipal.liga.setVisible(true);
                     PanelPrincipal.liga.generarEncuentro();
-                    PanelPrincipal.liga.setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                    PanelPrincipal.liga.setText(PanelPrincipal.matches.get(0).getJugadorUno().getNombre(), PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                     break;
             }
         });

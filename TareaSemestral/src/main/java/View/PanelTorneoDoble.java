@@ -112,26 +112,26 @@ public class PanelTorneoDoble extends JPanel {
             if (queBracket) { //estas en el upper Bracket
                 if (!PanelPrincipal.matches.isEmpty()) {
                     if (PanelPrincipal.matches.size() == 1) {
-                        setTextButtom(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                        setTextButtom(PanelPrincipal.matches.get(0).getJugadorUno().getNombre(), PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                         boton1.setText("Continuar");
                         boton2.setText("Continuar");
                     } else {
                         setTextButtom(PanelPrincipal.matches.get(1).getJugadorUno().getNombre(), PanelPrincipal.matches.get(1).getJugadorDos().getNombre());
                     }
                     if(!Torneo.hayEnfrentamientoEnLower) { //no hay enfrentamiento en lower
-                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
-                        textos.get(sneakyCont2).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
+                        textos.get(sneakyCont2).setText(PanelPrincipal.matches.get(0).getJugadorUno().getNombre());
                         sneakyCont2++;
                         sneakyCont3++;
                     }
                     else{ //hay enfrentamiento en lower
                         if(contRonda < 2) {
-                            textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                            textos.get(sneakyCont3).setText(PanelPrincipal.matches.get(0).getJugadorUno().getNombre());
                             sneakyCont3++;
                             contRonda++;
                         }
                         else{
-                            textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                            textos.get(sneakyCont3).setText(PanelPrincipal.matches.get(0).getJugadorUno().getNombre());
                             sneakyCont3++;
 
                         }
@@ -142,26 +142,26 @@ public class PanelTorneoDoble extends JPanel {
             else{ // Estas en Lower Bracket
                 if (!PanelPrincipal.matches.isEmpty()) {
                     if (PanelPrincipal.matches.size() == 1) {
-                        setTextButtom(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                        setTextButtom(PanelPrincipal.matches.get(0).getJugadorUno().getNombre(), PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                         boton1.setText("Continuar");
                         boton2.setText("Continuar");
                     } else {
                         setTextButtom(PanelPrincipal.matches.get(1).getJugadorUno().getNombre(), PanelPrincipal.matches.get(1).getJugadorDos().getNombre());
                     }
                     if(!Torneo.hayEnfrentamientoEnLower){ //no hay enfrentamiento en lower
-                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
-                        textos.get(sneakyCont2).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
+                        textos.get(sneakyCont2).setText(PanelPrincipal.matches.get(0).getJugadorUno().getNombre());
                         sneakyCont2++;
                         sneakyCont3++;
                     }
                     else{
                         if(contRonda < 2) {
-                            textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                            textos.get(sneakyCont3).setText(PanelPrincipal.matches.get(0).getJugadorUno().getNombre());
                             sneakyCont3++;
                             contRonda++;
                         }
                         else{
-                            textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                            textos.get(sneakyCont3).setText(PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                             sneakyCont3++;
                         }
                     }
@@ -174,28 +174,28 @@ public class PanelTorneoDoble extends JPanel {
                 Torneo.selectWinner = true;
                 if (!PanelPrincipal.matches.isEmpty()) {
                     if (PanelPrincipal.matches.size() == 1) {
-                        setTextButtom(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                        setTextButtom(PanelPrincipal.matches.get(0).getJugadorUno().getNombre(), PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                         boton1.setText("Continuar");
                         boton2.setText("Continuar");
-                        System.out.println(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre() + " " + PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                        System.out.println(PanelPrincipal.matches.get(0).getJugadorUno().getNombre() + " " + PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                     } else {
                         setTextButtom(PanelPrincipal.matches.get(1).getJugadorUno().getNombre(), PanelPrincipal.matches.get(1).getJugadorDos().getNombre());
                     }
                 }
                 if(!Torneo.hayEnfrentamientoEnLower){ //no hay enfrentamiento en lower
-                    textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
-                    textos.get(sneakyCont2).setText(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                    textos.get(sneakyCont3).setText(PanelPrincipal.matches.get(0).getJugadorUno().getNombre());
+                    textos.get(sneakyCont2).setText(PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                     sneakyCont2++;
                     sneakyCont3++;
                 }
                 else{
                     if(contRonda < 2) {
-                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                         sneakyCont3++;
                         contRonda++;
                     }
                     else{
-                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.get(0).getJugadorUno().getNombre());
                         sneakyCont3++;
                     }
                 }
@@ -203,19 +203,19 @@ public class PanelTorneoDoble extends JPanel {
             }
             else {
                 if(!Torneo.hayEnfrentamientoEnLower){ //no hay enfrentamiento en lower
-                    textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
-                    textos.get(sneakyCont2).setText(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                    textos.get(sneakyCont3).setText(PanelPrincipal.matches.get(0).getJugadorUno().getNombre());
+                    textos.get(sneakyCont2).setText(PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                     sneakyCont2++;
                     sneakyCont3++;
                 }
                 else{
                     if(contRonda < 2) {
-                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                         sneakyCont3++;
                         contRonda++;
                     }
                     else{
-                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre());
+                        textos.get(sneakyCont3).setText(PanelPrincipal.matches.get(0).getJugadorUno().getNombre());
                         sneakyCont3++;
                     }
                 }
@@ -254,11 +254,11 @@ public class PanelTorneoDoble extends JPanel {
      */
     public void jugarEncuentro(ArrayList<Encuentro> encuentros) {
         if (!encuentros.isEmpty()) {
-            PanelPrincipal.torneo.jugar(encuentros.removeFirst());
+            PanelPrincipal.torneo.jugar(encuentros.remove(0));
             if (!encuentros.isEmpty()) {
                 setTextButtom(
-                        encuentros.getFirst().getJugadorUno().getNombre(),
-                        encuentros.getFirst().getJugadorDos().getNombre()
+                        encuentros.get(0).getJugadorUno().getNombre(),
+                        encuentros.get(0).getJugadorDos().getNombre()
                 );
             } else {
                 ArrayList<Encuentro> nuevos = null;
@@ -272,8 +272,8 @@ public class PanelTorneoDoble extends JPanel {
                 if (nuevos != null && !nuevos.isEmpty()) {
                     PanelPrincipal.matches = nuevos;
                     setTextButtom(
-                            nuevos.getFirst().getJugadorUno().getNombre(),
-                            nuevos.getFirst().getJugadorDos().getNombre()
+                            nuevos.get(0).getJugadorUno().getNombre(),
+                            nuevos.get(0).getJugadorDos().getNombre()
                     );
                 }
             }

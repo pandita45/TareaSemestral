@@ -36,7 +36,7 @@ public class GeneradorEncuentrosDirecta extends JPanel {
             Torneo.selectWinner = false;
             if(!PanelPrincipal.matches.isEmpty()) {
                 if (PanelPrincipal.matches.size() == 1) {
-                    setTextButton(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                    setTextButton(PanelPrincipal.matches.get(0).getJugadorUno().getNombre(), PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                     boton1.setText("Continuar");
                     boton2.setText("Continuar");
                 }
@@ -50,7 +50,7 @@ public class GeneradorEncuentrosDirecta extends JPanel {
         boton2.addActionListener(e -> {
             Torneo.selectWinner = true;
             if(!PanelPrincipal.matches.isEmpty()) {
-                System.out.println(PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+                System.out.println(PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
                 if (PanelPrincipal.matches.size() == 1) {
                     boton1.setText("Continuar");
                     boton2.setText("Continuar");
@@ -82,7 +82,7 @@ public class GeneradorEncuentrosDirecta extends JPanel {
             return temp;
         }
         else {
-            JOptionPane.showMessageDialog(Ventana.getInstancia(), "El ganador es " + PanelPrincipal.torneo.getParticipantes().getFirst().getNombre());
+            JOptionPane.showMessageDialog(Ventana.getInstancia(), "El ganador es " + PanelPrincipal.torneo.getParticipantes().get(0).getNombre());
             return null;
         }
     }
@@ -112,11 +112,11 @@ public class GeneradorEncuentrosDirecta extends JPanel {
      */
     public void jugarEncuentro(){
         if(!PanelPrincipal.matches.isEmpty()){
-            PanelPrincipal.torneo.jugar(PanelPrincipal.matches.removeFirst());
+            PanelPrincipal.torneo.jugar(PanelPrincipal.matches.remove(0));
         }
         else if (generarEncuentros(Torneo.participante)!=null){
             PanelPrincipal.matches = generarEncuentros(Torneo.participante);
-            setTextButton(PanelPrincipal.matches.getFirst().getJugadorUno().getNombre(), PanelPrincipal.matches.getFirst().getJugadorDos().getNombre());
+            setTextButton(PanelPrincipal.matches.get(0).getJugadorUno().getNombre(), PanelPrincipal.matches.get(0).getJugadorDos().getNombre());
         }
     }
 }
